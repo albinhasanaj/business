@@ -10,7 +10,7 @@ export default function Home() {
         <Navbar />
       </header>
       <main className="flex flex-col">
-        <div className="h-screen blue__gradient flex justify-center">
+        <div className="min-h-screen blue__gradient flex justify-center">
           <div className="max-w-[1440px] w-full">
             <Hero />
           </div>
