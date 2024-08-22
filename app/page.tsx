@@ -1,6 +1,7 @@
 import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Projects from "@/components/Projects";
 import Image from "next/image";
 import { Fragment } from "react";
 import Wave from 'react-wavify'
@@ -43,6 +44,12 @@ export default function Home() {
               points: 5
             }}
           />
+        </div>
+        <div className="h-screen">
+          No code VS Code and why CODE is always better than no code
+        </div>
+        <div className="">
+          <Projects />
         </div>
       </main>
     </Fragment>
