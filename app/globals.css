@@ -11,4 +11,5 @@
 
 .blue__gradient {
   background: linear-gradient(180deg, #3D66F5 0%, #4C19AE 100%);
+  width: 100vw;
 }
