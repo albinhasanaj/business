@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
 
-const Project = ({ bgColor, title, description, imagePath, index }: { index: number, bgColor: string, title: string, description: string, imagePath: string }) => {
+const Project = ({ bgColor, title, description, imagePath, index, width }: { width: number, index: number, bgColor: string, title: string, description: string, imagePath: string }) => {
     return (
-        <div className={`flex flex-col ${index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-4 items-center justify-around p-8 ${bgColor}`}>
-            <div className='flex flex-col gap-4'>
+        <div className={`flex flex-col ${index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-4 items-center justify-around p-8 min-h-screen`}
+            style={{ background: bgColor }}
+        >
+            <div className='flex flex-col'>
                 <h2 className='heading2'>{title}</h2>
                 <p className=''>{description}</p>
                 {/* button will link to href of project title */}
@@ -15,7 +17,7 @@ const Project = ({ bgColor, title, description, imagePath, index }: { index: num
                 alt={title}
                 width={500}
                 height={500}
-                className='w-[1000px] h-auto overflow-hidden'
+                className={`w-[${width}px] overflow-hidden`}
                 unoptimized={true}
             />
         </div>

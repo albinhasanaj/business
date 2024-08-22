@@ -8,11 +8,12 @@ const Projects = () => {
             {projects.map((project, index) => (
                 <Project
                     key={index}
-                    bgColor={index % 2 !== 0 ? 'bg-white' : 'bg-gray-100'}
+                    bgColor={project.bgColor}
                     title={project.title}
                     description={project.description}
                     imagePath={project.imagePath}
                     index={index}
+                    width={project.width}
                 />
             ))}
         </section>
