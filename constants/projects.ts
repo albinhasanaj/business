@@ -12,7 +12,7 @@ const projects = [
         description: "A platform for sharing funny and joyful comments.",
         imagePath: "/images/SmileySpeak.png",
         bgColor: "linear-gradient(90deg, #FEFFB9 1.21%, #FFF 99.92%)",
-        width: 300,
+        width: 500,
 
     },
     {
