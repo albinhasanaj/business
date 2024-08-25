@@ -1,6 +1,7 @@
 import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Process from "@/components/Process";
 import Projects from "@/components/Projects";
 import Image from "next/image";
 import { Fragment } from "react";
@@ -45,8 +46,8 @@ export default function Home() {
             }}
           />
         </div>
-        <div className="h-screen">
-          No code VS Code and why CODE is always better than no code
+        <div className="min-h-screen">
+          <Process />
         </div>
         <div className="">
           <Projects />

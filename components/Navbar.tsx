@@ -9,7 +9,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     return (
-        <nav className='flex w-full max-w-[1440px] justify-between items-center relative text-white py-6 px-4 md:px-8 shadow-lg rounded-b-lg z-[10]'>
+        <nav className='flex w-full max-w-[1440px] justify-between items-center relative text-white py-6 px-4 md:px-8 z-[10]'>
             <span className='text-[24px] font-bold tracking-wide'>TERRN.DYNAMICS</span>
             <ul className='md:gap-4 lg:gap-8 hidden md:flex select-none'>
                 <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>About Us</li>
