@@ -7,7 +7,7 @@ const Process = () => {
     const arr = Array.from({ length: 5 }, (_, i) => i + 1)
 
     return (
-        <section className="flex flex-col gap-4 items-center my-20 size-full px-4 md:px-8 lg:px-16">
+        <section className="flex flex-col gap-4 items-center my-20 size-full px-4 md:px-8 lg:px-16 bg-white">
             <h2 className='heading2 text-white'>Our Process</h2>
             <div className='flex flex-col gap-20 max-w-[1000px] w-full mt-20'>
                 {arr.map((item, index) => (

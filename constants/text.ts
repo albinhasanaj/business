@@ -1,3 +1,3 @@
 export const AboutPage = {
-    description: "We are a no code business that takes pride in the code we produce, the rest of this text is just boilerplate in order to fill up some of the blank space."
+    description: "is a creative design & development partner for driven businesses to achieve digital growth."
 };

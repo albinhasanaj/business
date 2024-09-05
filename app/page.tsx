@@ -1,11 +1,11 @@
 import About from "@/components/About";
+import AboutContainer from "@/components/AboutContainer";
+import CardsContainer from "@/components/CardsContainer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
-import Process from "@/components/Process";
 import Projects from "@/components/Projects";
-import Image from "next/image";
 import { Fragment } from "react";
-import Wave from 'react-wavify'
+import Wave from "react-wavify";
 
 export default function Home() {
   return (
@@ -18,37 +18,22 @@ export default function Home() {
           <div className="max-w-[1440px] w-full">
             <Hero />
           </div>
-          <Wave fill='#fff'
+          <Wave
+            fill="#fff"
             paused={false}
-            style={{ display: 'flex', width: '100%', position: 'absolute', bottom: 0 }}
+            style={{ display: "flex", width: "100%", position: "absolute", bottom: 0 }}
             options={{
               height: 20,
               amplitude: 30,
               speed: 0.15,
-              points: 5
+              points: 5,
             }}
           />
         </div>
-        <div className="bg-white w-full flex flex-col items-center">
-          <div className="max-w-[1440px] flex justify-center">
-            <About />
-          </div>
+        <div className="bg-white">
+          <AboutContainer />
         </div>
-        <div className="w-full rotate-180">
-          <Wave fill='#fff'
-            paused={false}
-            style={{ display: 'flex', width: '100%' }}
-            options={{
-              height: 20,
-              amplitude: 30,
-              speed: 0.15,
-              points: 5
-            }}
-          />
-        </div>
-        <div className="min-h-screen">
-          <Process />
-        </div>
+        <div className="w-full rotate-180"></div>
         <div className="">
           <Projects />
         </div>
