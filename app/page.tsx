@@ -13,7 +13,7 @@ export default function Home() {
       <header className="w-full flex justify-center absolute px-4">
         <Navbar />
       </header>
-      <main className="flex flex-col overflow-hidden">
+      <main className="flex flex-col">
         <div className="min-h-screen flex justify-center blue__gradient relative">
           <div className="max-w-[1440px] w-full">
             <Hero />
@@ -30,7 +30,7 @@ export default function Home() {
             }}
           />
         </div>
-        <div className="bg-white">
+        <div className="bg-white w-full flex flex-col items-center">
           <AboutContainer />
         </div>
         <div className="w-full rotate-180"></div>
