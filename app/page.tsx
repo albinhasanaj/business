@@ -33,8 +33,7 @@ export default function Home() {
         <div className="bg-white w-full flex flex-col items-center">
           <AboutContainer />
         </div>
-        <div className="w-full rotate-180"></div>
-        <div className="">
+        <div>
           <Projects />
         </div>
       </main>

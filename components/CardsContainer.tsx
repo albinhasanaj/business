@@ -3,7 +3,7 @@ import Card from './Card';
 
 const CardsContainer = () => {
     return (
-        <div className='grid grid-cols-2 gap-4 mt-12'>
+        <div className='flex flex-wrap justify-end gap-4'>
             <Card />
             <Card />
             <Card />

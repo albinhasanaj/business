@@ -23,5 +23,37 @@
 
 .blue__gradient {
   background: linear-gradient(180deg, #3D66F5 0%, #4C19AE 100%);
-  width: 100vw;
+}
+
+/* shimmer.css */
+.shimmer-bg {
+  background: linear-gradient(90deg,
+      rgba(61, 102, 245, 0.6) 0%,
+      /* Blue */
+      rgba(76, 25, 174, 0.8) 25%,
+      /* Purple */
+      rgba(224, 64, 251, 0.7) 50%,
+      /* Pinkish-purple */
+      rgba(61, 102, 245, 0.6) 75%,
+      /* Blue again */
+      rgba(113, 235, 255, 0.8) 100%
+      /* Light cyan for highlight */
+    );
+  background-size: 200% 200%;
+  animation: shimmer 6s ease-in-out infinite;
+  border-radius: 25px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  50% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }

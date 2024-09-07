@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-[#3D66F5]`}>
+      <body className={`${montserrat.className} bg-[#3D66F5] overflow-x-hidden`}>
         {children}
       </body>
     </html>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 const Hero = () => {
     return (
@@ -9,9 +10,7 @@ const Hero = () => {
             <p className='text-xl sm:text-2xl md:text-2xl lg:text-[32px] tracking-tighter text-[#CACACA] text-center md:text-left'>
                 Websites tailored to you
             </p>
-            <button className='text-lg sm:text-xl md:text-xl lg:text-[24px] text-[#4C19AE] px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-white rounded-[100px]'>
-                Schedule a meeting
-            </button>
+            <Button text="Schedule a meeting" />
 
             {/* Top left circle on mobile, moves to the left on larger screens */}
             <div className='size-24 md:size-40 bg-[#40BFF5] rounded-full absolute left-[5%] top-[15%] md:left-[10%] md:top-[10%] blur-[30px] md:blur-[50px]' />
