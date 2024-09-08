@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
-const Card = () => {
+const Card = ({ title, tags }: { title: string; tags: string[] }) => {
     return (
         <motion.div
-            className="relative card-container w-[336px] h-[336px] bg-gradient-to-tl from-[#3b49f5] to-[#6439e6] rounded-[25px] shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all duration-700 cursor-pointer"
+            className="relative card-container w-[350px] h-[350px] bg-gradient-to-tl from-[#3b49f5] to-[#6439e6] rounded-[25px] shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all duration-700 cursor-pointer"
             whileHover={{
                 scale: 1.1,
                 rotate: 0,
@@ -45,12 +45,12 @@ const Card = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                    Branding
+                    {title}
                 </motion.span>
 
                 {/* Floating Tags */}
                 <div className="flex flex-wrap w-2/3">
-                    {['Design', 'Strategy', 'Creative', 'UI/UX'].map((tag, index) => (
+                    {tags.map((tag, index) => (
                         <motion.span
                             key={index}
                             className="bg-slate-700/50 text-slate-300 text-xs px-3 py-1 rounded-full m-1 shadow-md"
