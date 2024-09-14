@@ -8,9 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
-    },
+      backgroundImage: {
+        "nasa": "url('/images/NexTalk/nasa.png')",
+      },
+    }, screens: {
+      'xs': '400px',
+      'sm': '640px',
+      'md': '768px',
+      'md2': '930px',
+      'lg': '1024px',
+      'lg2': '1120px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    }
   },
 
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
 };
 export default config;
