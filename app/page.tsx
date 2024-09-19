@@ -1,6 +1,7 @@
 import About from "@/components/About";
 import AboutContainer from "@/components/AboutContainer";
 import CardsContainer from "@/components/CardsContainer";
+import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
@@ -35,6 +36,9 @@ export default function Home() {
         </div>
         <div id="projects">
           <Projects />
+        </div>
+        <div className="blue__gradient2">
+          <Contact />
         </div>
       </main>
     </Fragment>
