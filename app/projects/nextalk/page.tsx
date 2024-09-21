@@ -98,9 +98,9 @@ const Hero = () => {
                             </div>
                         </section>
                     ) : (
-                        <section className='w-full h-screen bg-nasa'>
+                        <section className='w-full h-screen bg-nasa bg-cover bg-no-repeat'>
                             <div
-                                className="w-full flex flex-col bg-cover bg-no-repeat"
+                                className="w-full flex flex-col"
                             >
                                 <NexTalkChatNavbar />
                                 <main className="flex h-[calc(100vh-180px)] md:h-screen w-full items-center justify-center">

@@ -10,7 +10,7 @@ const Hero = () => {
                 animate={{
                     y: [0, -5, 0],
                     opacity: [1, 0.9, 1],
-                    rotate: [0, -0.5, 0], // Slight rotation
+                    rotate: [0, -0.5, 0], // Slight rotation to simulate wave effect
                 }}
                 transition={{
                     duration: 8,
@@ -26,7 +26,7 @@ const Hero = () => {
                 animate={{
                     y: [0, -3, 0],
                     opacity: [1, 0.9, 1],
-                    rotate: [0, -0.5, 0], // Slight rotation
+                    rotate: [0, -0.5, 0], // Slight rotation to simulate wave effect
                 }}
                 transition={{
                     duration: 5,
