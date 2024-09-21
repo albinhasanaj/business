@@ -15,8 +15,8 @@ export default function Home() {
         <Navbar />
       </header>
       <main className="flex flex-col">
-        <div className="min-h-screen flex justify-center blue__gradient relative">
-          <div className="max-w-[1440px] w-full">
+        <div className="min-h-screen h-[650px] flex justify-center blue__gradient relative">
+          <div className="max-w-[1440px] w-full mb-16">
             <Hero />
           </div>
           <Wave

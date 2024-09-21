@@ -18,7 +18,7 @@ const config: Config = {
       'md2': '930px',
       'lg': '1024px',
       'lg2': '1120px',
-      'xl': '1280px',
+      'xl': '1281px',
       '2xl': '1536px',
     }
   },

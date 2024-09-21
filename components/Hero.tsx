@@ -18,7 +18,7 @@ const Hero = () => {
                     repeat: Infinity,
                 }}
             >
-                <h1 className='heading1 tracking-tight text-center md:text-left text-4xl sm:text-5xl md:text-5xl lg:text-6xl'>
+                <h1 className='heading1 tracking-tight text-center md:text-left text-4xl sm:text-5xl md:text-5xl xl:text-5xl'>
                     Web Development & Design <br /> Launches brands to new <span className='text-[#41BFF5]'>heights</span>
                 </h1>
             </motion.div>

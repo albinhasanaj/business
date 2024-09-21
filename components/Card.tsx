@@ -3,9 +3,9 @@ import React from 'react';
 
 const Card = ({ title, tags }: { title: string; tags: string[] }) => {
     return (
-        <div className="relative card-container w-[350px] h-[350px] bg-gradient-to-tl from-[#3d66f5] to-[#4c19ae] rounded-md p-4">
+        <div className="relative card-container w-[300px] h-[300px] md2:w-[350px] md2:h-[350px] bg-gradient-to-tl from-[#3d66f5] to-[#4c19ae] rounded-md p-4">
             {/* Card content */}
-            <div className="flex flex-col gap-4 w-full h-full items-start justify-start">
+            <div className="flex flex-col gap-3 w-full h-full items-start justify-start">
                 <div className="relative w-[100px] h-[100px]">
                     <Image
                         src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
@@ -16,11 +16,11 @@ const Card = ({ title, tags }: { title: string; tags: string[] }) => {
                     />
                 </div>
 
-                <span className="text-2xl font-semibold text-white">
+                <span className="md2:text-2xl text-xl font-semibold text-white">
                     {title}
                 </span>
 
-                <div className="flex flex-wrap w-2/3">
+                <div className="flex flex-wrap md2:w-2/3">
                     {tags.map((tag, index) => (
                         <span
                             key={index}

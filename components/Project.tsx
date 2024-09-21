@@ -1,11 +1,11 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const Project = ({ bgColor, title, description, imagePath, index, width }: ProjectProps) => {
-    const [isModalOpen, setModalOpen] = React.useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
 
     // Define animations for the text and image
     const textAnimation = {

@@ -40,10 +40,10 @@ const Navbar = ({ handlePage2 }: { handlePage2: any }) => {
                     {isOpen && (
                         <div className="absolute top-[60px] left-0 w-full h-[calc(100vh-60px)] bg-black bg-opacity-80 flex flex-col items-center justify-center overflow-hidden transition-all duration-300">
                             <ul className="flex flex-col gap-5 items-center">
-                                <Link href="/" className="text-white text-2xl hover:underline"> Home </Link>
-                                <Link href="/about" className="text-white text-2xl hover:underline"> About </Link>
-                                <Link href="/contact" className="text-white text-2xl hover:underline"> Contact </Link>
-                                <Link href="/login" className="text-white text-2xl hover:underline"> Log In </Link>
+                                <p onClick={handlePage2} className="text-white text-2xl hover:underline"> Home </p>
+                                <p className="text-[#696969] text-2xl "> About </p>
+                                <p className="text-[#696969] text-2xl "> Contact </p>
+                                <p className="text-[#696969] text-2xl "> Log In </p>
                                 <TryForFreeBtn />
                             </ul>
                         </div>
