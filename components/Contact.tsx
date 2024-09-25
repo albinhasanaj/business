@@ -3,10 +3,13 @@ import React, { useState } from 'react'
 
 const Contact = () => {
     const [value, setValue] = useState(0);
+    const [rangeValue, setRangeValue] = useState(0);
 
     const handleSliderChange = (e: any) => {
         setValue(e.target.value);
+        setRangeValue(e.target.value);
     };
+
     return (
         <div id='contact' className='h-auto min-h-screen flex items-center justify-center w-full '>
             <div className='max-w-[1440px] gap-10 md2:gap-0 w-full flex flex-col md2:flex-row items-center justify-between mx-16'>
@@ -42,7 +45,9 @@ const Contact = () => {
                             className="slider"
                             style={{ '--value': `${value}%` } as React.CSSProperties}
                         />
-                        <p className='text-white'>$$$</p>
+                        <p className='text-white'>
+                            ${rangeValue*150}
+                        </p>
                         </div>
                     </div>
                     <button className='bg-white w-[300px] xs:w-[350px] xl:w-[475px] h-[65px] text-black text-[16px] flex items-center justify-center font-medium rounded-full'>SHARE YOUR FEEDBACK</button>

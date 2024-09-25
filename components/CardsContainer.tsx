@@ -4,7 +4,7 @@ import { Services } from '@/constants/services';
 
 const CardsContainer = () => {
     return (
-        <div className='flex flex-wrap md:justify-end gap-4 justify-center'>
+        <div className='flex flex-wrap md:justify-end gap-4 justify-center mr-5'>
             {Services.map((service, index) => (
                 <Card key={index} title={service.title} tags={service.tags} />
             ))}
