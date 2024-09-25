@@ -4,7 +4,7 @@ import projects from '@/constants/projects'
 
 const Projects = () => {
     return (
-        <section className='flex flex-col'>
+        <section id='portfolio' className='flex flex-col'>
             {projects.map((project, index) => (
                 <Project
                     key={index}
