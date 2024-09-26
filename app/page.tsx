@@ -16,7 +16,9 @@ export default function Home() {
       </header>
       <main className="flex flex-col">
         <div className="min-h-screen h-[650px] flex justify-center blue__gradient relative">
-          <div className="max-w-[1440px] w-full mb-16">
+          <div className="max-w-[1440px] w-full mb-16"
+            id="home"
+          >
             <Hero />
           </div>
           <Wave

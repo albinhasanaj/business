@@ -54,7 +54,6 @@ const Project = ({ bgColor, title, description, imagePath, index, width }: Proje
                     alt={title}
                     width={width}
                     height={width}
-                    layout="responsive"
                     unoptimized={true}
                     className='h-auto'
                 />

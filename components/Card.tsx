@@ -10,8 +10,8 @@ const Card = ({ title, tags }: { title: string; tags: string[] }) => {
                     <Image
                         src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
                         alt="image"
-                        layout="fill"
                         className="rounded-md object-cover"
+                        fill
                     />
                 </div>
 

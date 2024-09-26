@@ -41,7 +41,6 @@ const Contact = () => {
                                     max="100"
                                     value={value}
                                     onChange={handleSliderChange}
-                                    defaultValue="0"
                                     className="slider"
                                     style={{ '--value': `${value}%` } as React.CSSProperties}
                                 />
