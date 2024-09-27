@@ -2,6 +2,10 @@
 import SmileySpeakCard from "@/components/SmileySpeakCard";
 import SmileySpeakNav from "@/components/SmileySpeakNav";
 import { Fragment, useState } from "react";
+import { Itim } from "next/font/google";
+
+const itim = Itim({ weight: "400", subsets: ["latin"] });
+
 
 const SmileySpeak = () => {
     const [OBSpage, setOBSpage] = useState(true);
@@ -9,7 +13,7 @@ const SmileySpeak = () => {
         setOBSpage(!OBSpage);
     }
     return (
-        <div>
+        <div className={`${itim.className}`}>
             {OBSpage ? (
                 <section className='w-full h-screen bg-black flex flex-col gap-10 items-center justify-center pt-[200px]'>
                     <div className='flex flex-col items-center gap-5'>
@@ -19,7 +23,7 @@ const SmileySpeak = () => {
                     <p className='text-gray-500 pt-[200px]'>For the full project, visit <span className='font-bold cursor-pointer'>[URL FOR THE PROJECT]</span></p>
                 </section>
             ) : (
-                <Fragment>
+                <div className="h-screen bg-[#DDDDDD]">
                     <div className="flex flex-col items-center w-full">
                         <div className="w-full py-8">
                             <SmileySpeakNav />
@@ -39,7 +43,7 @@ const SmileySpeak = () => {
                         <SmileySpeakCard />
                         <SmileySpeakCard />
                     </div>
-                </Fragment>
+                </div>
             )}
         </div>
 
