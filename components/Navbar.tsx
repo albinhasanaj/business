@@ -5,6 +5,7 @@ import { GrLanguage } from "react-icons/gr";
 import { CgMenuCheese } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -58,14 +59,19 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed transition-all top-0 left-0 right-0 z-50 duration-200 ${show
-                    ? 'translate-y-0 bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,0,0,0.5)]'
-                    : '-translate-y-full'
-                } flex w-full items-center text-white py-4 px-4 md:px-8 justify-around`}
+                ? 'translate-y-0 bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,0,0,0.5)]'
+                : '-translate-y-full'
+                } flex w-full items-center text-white py-4 px-8 md:px-16 justify-between`}
         >
             <span className='text-4xl font-bold tracking-wide'>
-                <Link href='#home' onClick={handleNavLinkClick}>Tachyon</Link>
+                <Link href='#home' onClick={handleNavLinkClick}>
+                    <Image src="/images/logo/tachyon.png" alt="Tachyon" width={64} height={64}
+                        className='cursor-pointer hover:scale-105 transition-transform h-[64px] w-auto'
+                        unoptimized={true}
+                    />
+                </Link>
             </span>
-            <ul className='md:gap-4 lg:gap-8 hidden md:flex select-none'>
+            <ul className='md:gap-4 lg:gap-8 hidden md:flex select-none absolute left-[50%] px-0 -translate-x-1/2'>
                 <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
                     <Link href='#about' onClick={handleNavLinkClick}>About Us</Link>
                 </li>
