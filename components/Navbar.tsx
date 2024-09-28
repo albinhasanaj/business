@@ -41,6 +41,8 @@ const Navbar = () => {
     };
 
     const handleScroll = () => {
+        if (ignoreScroll.current) return; // Add this check
+
         const currentScrollY = window.scrollY;
 
         if (currentScrollY > lastScrollY.current && currentScrollY > 60) {
@@ -54,11 +56,12 @@ const Navbar = () => {
     };
 
     const onScroll = () => {
-        if (!ticking.current && !ignoreScroll.current) {
+        if (!ticking.current) {
             window.requestAnimationFrame(handleScroll);
             ticking.current = true;
         }
     };
+
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -79,6 +82,7 @@ const Navbar = () => {
             ignoreScroll.current = false;
         }, 1000); // Adjust the duration as needed
     };
+
 
     return (
         <nav
@@ -109,7 +113,7 @@ const Navbar = () => {
                     <Link href="#contact">{data.navbar.contact}</Link>
                 </li>
             </ul>
-            <div className="flex gap-4 items-center">
+            <div className="hidden md:flex gap-4 items-center">
 
                 <div className="flex items-center bg-[rgba(255,255,255,0.1)] rounded-full p-1 cursor-pointer">
                     <span
@@ -149,8 +153,8 @@ const Navbar = () => {
             )}
 
             {isOpen && (
-                <div className='md:hidden absolute top-full right-4 w-[80%] max-w-sm bg-white rounded-lg shadow-lg p-6 z-40'>
-                    <ul className='flex flex-col gap-6 text-black items-start select-none'>
+                <div className='md:hidden absolute top-full right-4 w-[80%] max-w-sm rounded-lg shadow-lg p-6 z-40 bg-[rgba(0,0,0,0.5)] text-white'>
+                    <ul className='flex flex-col gap-6 items-start select-none'>
                         <li
                             onClick={() => {
                                 setIsOpen(false);
@@ -178,10 +182,29 @@ const Navbar = () => {
                         >
                             <Link href='#contact' onClick={handleNavLinkClick}>{data.navbar.contact}</Link>
                         </li>
-                        <GrLanguage
-                            size={32}
-                            className='mt-4 cursor-pointer text-black hover:text-[#41BFF5] transition-colors'
-                        />
+                        <div className="md:hidden flex gap-4 items-center">
+
+                            <div className="flex items-center bg-[rgba(255,255,255,0.1)] rounded-full p-1 cursor-pointer">
+                                <span
+                                    className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'en' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
+                                        }`}
+                                    onClick={() => {
+                                        changeLanguage('en');
+                                    }}
+                                >
+                                    en
+                                </span>
+                                <span
+                                    className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'sv' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
+                                        }`}
+                                    onClick={() => {
+                                        changeLanguage('sv');
+                                    }}
+                                >
+                                    sv
+                                </span>
+                            </div>
+                        </div>
                     </ul>
                 </div>
             )}
