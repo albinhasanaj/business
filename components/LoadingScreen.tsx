@@ -14,7 +14,7 @@ const LoadingScreen = () => {
                 }
                 return Math.min(oldProgress + 5, 100); // Increase by 5% every time
             });
-        }, 150); // Adjust time interval (150ms in this case) for speed of progress
+        }, 80); // Adjust time interval (150ms in this case) for speed of progress
 
         return () => clearInterval(interval); // Cleanup
     }, []);

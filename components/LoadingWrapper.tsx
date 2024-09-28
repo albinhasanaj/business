@@ -10,7 +10,7 @@ export default function LoadingWrapper({ children }: { children: React.ReactNode
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 3800);
+        }, 2000);
 
         return () => clearTimeout(timer);
     }, []);
