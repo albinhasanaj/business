@@ -6,7 +6,10 @@ import Projects from "@/components/Projects";
 import Wave from "react-wavify";
 import LoadingWrapper from "@/components/LoadingWrapper";
 
-const Home = () => {
+const Home = ({ params }: { params: { lang: string } }) => {
+
+  const lang = (params.lang === 'en' || params.lang === 'sv') ? params.lang : 'en';
+
   return (
     <LoadingWrapper>
       <header className="w-full flex justify-center absolute px-4">
@@ -38,7 +41,7 @@ const Home = () => {
           <AboutContainer />
         </div>
         <div id="projects">
-          <Projects />
+          <Projects lang={lang} />
         </div>
         <div className="blue__gradient2">
           <Contact />

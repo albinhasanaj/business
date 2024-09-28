@@ -17,4 +17,7 @@ module.exports = {
         tagline: "Websites tailored to you",
         button: "Schedule a meeting",
     },
+    buttons: {
+        "case-study": "Case Study",
+    }
 };

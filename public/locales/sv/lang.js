@@ -17,4 +17,7 @@ module.exports = {
         tagline: "Webbplatser skräddarsydda för dig",
         button: "Boka ett möte",
     },
+    buttons: {
+        "case-study": "Fallstudie",
+    }
 };

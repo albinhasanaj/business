@@ -3,9 +3,12 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
 const Project = ({ bgColor, title, description, imagePath, index, width }: ProjectProps) => {
     const [isModalOpen, setModalOpen] = useState(false);
+    const params = useParams();
+    const lang = params.lang || 'en';
 
     // Define animations for the text and image
     const textAnimation = {
@@ -17,6 +20,16 @@ const Project = ({ bgColor, title, description, imagePath, index, width }: Proje
         hidden: { opacity: 0, scale: 0.8 },
         visible: { opacity: 1, scale: 1 },
     };
+
+    let translations;
+
+    // Load translations based on language
+    if (lang === "sv") {
+        translations = require('@/locales/sv/lang.js');
+    } else {
+        translations = require('@/locales/en/lang.js');
+    }
+
 
     return (
         <motion.div
@@ -35,9 +48,9 @@ const Project = ({ bgColor, title, description, imagePath, index, width }: Proje
             >
                 <h2 className='heading2 text-black text-center md:text-start'>{title}</h2>
                 <p className='md:text-left paragraph max-w-[450px] text-center'>{description}</p>
-                <Link className='flex justify-center md:justify-start' href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
+                <Link className='flex justify-center md:justify-start' href={`${lang}/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
                     <button className="w-2/3 py-2 bg-white rounded-[25px] border border-black text-2xl mt-12 text-black">
-                        Case Study
+                        {translations.buttons["case-study"]}
                     </button>
                 </Link>
             </motion.div>
