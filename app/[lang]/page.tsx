@@ -38,7 +38,7 @@ const Home = ({ params }: { params: { lang: string } }) => {
           />
         </div>
         <div className="bg-white w-full flex flex-col items-center">
-          <AboutContainer />
+          <AboutContainer lang={lang} />
         </div>
         <div id="projects">
           <Projects lang={lang} />

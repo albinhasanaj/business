@@ -1,0 +1,84 @@
+/* Base button styling */
+.btn {
+    width: 45px;
+    height: 45px;
+    background-color: #4c19ae;
+    /* Explicit background color */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Prevent any black default background */
+    color: inherit;
+    /* Ensure text inherits color */
+}
+
+/* Explicit hover state */
+.btn:hover {
+    background-color: #4c19ae;
+    /* Ensure the background stays the same on hover */
+}
+
+/* Plus sign using pseudo-elements */
+.btn::before,
+.btn::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    /* White plus sign */
+    transition: all 0.3s ease;
+}
+
+.btn::before {
+    width: 50%;
+    height: 2px;
+    transform: rotate(0deg);
+}
+
+.btn::after {
+    width: 2px;
+    height: 50%;
+}
+
+/* Active state (X transition) */
+.btn.active {
+    background-color: transparent;
+    /* Background goes transparent on active */
+    border: 2px solid #4c19ae;
+    /* Adds a purple border */
+}
+
+/* Plus to X transition */
+.btn.active::before {
+    background-color: #4c19ae;
+    /* Change to purple */
+    transform: rotate(45deg);
+    width: 60%;
+}
+
+.btn.active::after {
+    background-color: #4c19ae;
+    /* Change to purple */
+    transform: rotate(45deg);
+    /* Opposite rotation */
+    height: 60%;
+}
+
+/* Ensure background color is not overridden anywhere */
+.btn:hover {
+    background-color: 0;
+    /* Keeps background consistent on hover */
+}
+
+/* Gradient text when button is active */
+.gradient-text {
+    background: linear-gradient(90deg, #3D66F5, #4C19AE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}

@@ -17,7 +17,11 @@ module.exports = {
         tagline: "Webbplatser skräddarsydda för dig",
         button: "Boka ett möte",
     },
+    about: {
+        description: "är en kreativ design- och utvecklingspartner för drivna företag för att uppnå digital tillväxt."
+    },
     buttons: {
         "case-study": "Fallstudie",
+        goal: "Hitta ditt mål",
     }
 };
