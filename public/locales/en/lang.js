@@ -12,7 +12,7 @@ module.exports = {
             "Performance Optimization",
             "Digital Marketing",
         ],
-        subheading: "Launches brands to new heights",
+        subheading: "Launches brands to new",
         below: "heights",
         tagline: "Websites tailored to you",
         button: "Schedule a meeting",

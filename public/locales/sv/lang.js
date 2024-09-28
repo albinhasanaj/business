@@ -12,7 +12,7 @@ module.exports = {
             "Prestandaoptimering",
             "Digital Marknadsföring",
         ],
-        subheading: "Lanserar varumärken till nya höjder",
+        subheading: "Lanserar varumärken till nya",
         below: "höjder",
         tagline: "Webbplatser skräddarsydda för dig",
         button: "Boka ett möte",
