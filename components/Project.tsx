@@ -33,9 +33,9 @@ const Project = ({ bgColor, title, description, imagePath, index, width }: Proje
                 variants={textAnimation}
                 transition={{ duration: 0.8, delay: 0.2 }}
             >
-                <h2 className='heading2 text-black'>{title}</h2>
-                <p className='text-left paragraph max-w-[450px]'>{description}</p>
-                <Link href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
+                <h2 className='heading2 text-black text-center md:text-start'>{title}</h2>
+                <p className='md:text-left paragraph max-w-[450px] text-center'>{description}</p>
+                <Link className='flex justify-center md:justify-start' href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
                     <button className="w-2/3 py-2 bg-white rounded-[25px] border border-black text-2xl mt-12 text-black">
                         Case Study
                     </button>

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+@keyframes shake {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    25% {
+        transform: translate(2px, -2px);
+    }
+
+    50% {
+        transform: translate(0px, 2px);
+    }
+
+    75% {
+        transform: translate(-2px, 0px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+.rocket-shake {
+    animation: shake 0.8s ease-in-out infinite;
+}
+
+.aldrich-regular {
+    font-family: "Aldrich", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

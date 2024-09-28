@@ -58,15 +58,15 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed transition-all top-0 left-0 right-0 z-50 duration-200 ${show
-                ? 'translate-y-0 bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,0,0,0.5)]'
+            className={`fixed transition-all top-0 left-0 right-0 z-50 duration-300 backdrop-blur-sm ${show
+                ? 'translate-y-0 bg-[rgba(0,0,0,0.3)] md:hover:bg-[rgba(0,0,0,0.5)]'
                 : '-translate-y-full'
                 } flex w-full items-center text-white py-4 px-8 md:px-16 justify-between`}
         >
             <span className='text-4xl font-bold tracking-wide'>
                 <Link href='#home' onClick={handleNavLinkClick}>
                     <Image src="/images/logo/tachyon.png" alt="Tachyon" width={64} height={64}
-                        className='cursor-pointer hover:scale-105 transition-transform h-[64px] w-auto'
+                        className='cursor-pointer md:hover:scale-105 transition-transform h-[64px] w-auto'
                         unoptimized={true}
                     />
                 </Link>
