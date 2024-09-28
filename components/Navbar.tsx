@@ -85,10 +85,15 @@ const Navbar = () => {
                     <Link href='#contact' onClick={handleNavLinkClick}>Contact</Link>
                 </li>
             </ul>
-            <GrLanguage
-                size={32}
-                className='hidden md:flex hover:text-[#41BFF5] transition-colors cursor-pointer'
-            />
+            <div className="flex gap-4 items-center">
+                <GrLanguage
+                    size={32}
+                    className='hidden md:flex hover:text-[#41BFF5] transition-colors cursor-pointer'
+                />
+                <span className='text-xl'>en</span>
+                <span className='text-xl'>|</span>
+                <span className='text-xl opacity-50'>sv</span>
+            </div>
 
             {isOpen ? (
                 <RxCross2
