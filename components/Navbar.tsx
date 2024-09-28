@@ -6,6 +6,7 @@ import { CgMenuCheese } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter, useParams } from 'next/navigation'; // Use next/navigation
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -16,12 +17,26 @@ const Navbar = () => {
     const ignoreScroll = useRef<boolean>(false);
     const ignoreScrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
-    const [language, setLanguage] = useState('en');
+    const router = useRouter();
+    const params = useParams();
+    const lang = params.lang || 'en';
 
-    const toggleLanguage = () => {
-        setLanguage(language === 'en' ? 'sv' : 'en');
+    const [language, setLanguage] = useState(lang);
+
+
+    let data: any = {};
+
+    //if lang == sv load locales/sv/lang.js else load locales/en/lang.js
+    if (lang === 'sv') {
+        data = require('@/locales/sv/lang.js');
+    } else {
+        data = require('@/locales/en/lang.js');
+    }
+
+    const changeLanguage = (lng: string) => {
+        setLanguage(lng);
+        router.push(`/${lng}`)
     };
-
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
@@ -80,16 +95,16 @@ const Navbar = () => {
             </span>
             <ul className='md:gap-4 lg:gap-8 hidden md:flex select-none absolute left-[50%] px-0 -translate-x-1/2'>
                 <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href='#about' onClick={handleNavLinkClick}>About Us</Link>
+                    <Link href="#about">{data.navbar.about}</Link>
                 </li>
                 <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href='#projects' onClick={handleNavLinkClick}>Portfolio</Link>
+                    <Link href="#projects">{data.navbar.portfolio}</Link>
                 </li>
                 {/* <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
                     <Link href='#services'>Services</Link>
                 </li> */}
                 <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href='#contact' onClick={handleNavLinkClick}>Contact</Link>
+                    <Link href="#contact">{data.navbar.contact}</Link>
                 </li>
             </ul>
             <div className="flex gap-4 items-center">
@@ -98,25 +113,23 @@ const Navbar = () => {
                     <span
                         className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'en' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
                             }`}
-                        onClick={() => setLanguage('en')}
+                        onClick={() => {
+                            changeLanguage('en');
+                        }}
                     >
                         en
                     </span>
                     <span
                         className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'sv' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
                             }`}
-                        onClick={() => setLanguage('sv')}
+                        onClick={() => {
+                            changeLanguage('sv');
+                        }}
                     >
                         sv
                     </span>
                 </div>
             </div>
-
-
-
-
-
-
             {isOpen ? (
                 <RxCross2
                     size={32}

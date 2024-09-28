@@ -1,17 +1,23 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useParams } from "next/navigation";
 import Button from "./Button";
 
 const Hero = () => {
-    const words = [
-        "Web Development",
-        "UI/UX Design",
-        "SEO Optimization",
-        "Performance Optimization",
-        "Digital Marketing",
-    ];
+    const params = useParams();
+    const lang = params?.lang || 'en'; // Default to English if no lang is provided
 
+    let translations;
+
+    // Load translations based on language
+    if (lang === "sv") {
+        translations = require('@/locales/sv/lang.js');
+    } else {
+        translations = require('@/locales/en/lang.js');
+    }
+
+    const words = translations.hero.heading; // Load the dynamic heading translations
     const [wordIndex, setWordIndex] = useState(0);
 
     useEffect(() => {
@@ -69,8 +75,8 @@ const Hero = () => {
                         </motion.span>
                     </AnimatePresence>
                 </span>
-                <br /> Launches brands to new{" "}
-                <span className="text-[#41BFF5]">heights</span>
+                <br /> {translations.hero.subheading}{" "}
+                <span className="text-[#41BFF5]">{translations.hero.below}</span>
             </h1>
 
             {/* Other content remains unchanged */}
@@ -87,11 +93,11 @@ const Hero = () => {
                 }}
             >
                 <p className="text-xl sm:text-2xl md:text-2xl lg:text-[32px] tracking-tighter text-[#CACACA] text-center md:text-left">
-                    Websites tailored to you
+                    {translations.hero.tagline}
                 </p>
             </motion.div>
 
-            <Button text="Schedule a meeting" />
+            <Button text={translations.hero.button} />
 
             {/* Top left circle on mobile, moves to the left on larger screens */}
             <div className="size-24 md:size-40 bg-[#40BFF5] rounded-full absolute left-[5%] top-[15%] md:left-[10%] md:top-[10%] blur-[30px] md:blur-[50px]" />

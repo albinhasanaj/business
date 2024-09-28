@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Montserrat, Aldrich } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
+import { appWithTranslation } from 'next-i18next';
+
 
 const montserrat = Montserrat({ subsets: ["latin"] });
-const aldrich = Aldrich({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tachyon",

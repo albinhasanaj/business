@@ -6,7 +6,7 @@ import Projects from "@/components/Projects";
 import Wave from "react-wavify";
 import LoadingWrapper from "@/components/LoadingWrapper";
 
-export default function Home() {
+const Home = () => {
   return (
     <LoadingWrapper>
       <header className="w-full flex justify-center absolute px-4">
@@ -47,3 +47,5 @@ export default function Home() {
     </LoadingWrapper>
   );
 }
+
+export default Home;
