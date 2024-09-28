@@ -3,6 +3,7 @@
 
 import { Fragment, useEffect, useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
+import { motion } from "framer-motion";
 
 export default function LoadingWrapper({ children }: { children: React.ReactNode }) {
     const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +23,14 @@ export default function LoadingWrapper({ children }: { children: React.ReactNode
                     <LoadingScreen />
                 </div>
             ) : (
-                children
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    {children}
+                </motion.div>
+
             )}
         </Fragment>
     );
