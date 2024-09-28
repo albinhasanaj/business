@@ -16,6 +16,13 @@ const Navbar = () => {
     const ignoreScroll = useRef<boolean>(false);
     const ignoreScrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
+    const [language, setLanguage] = useState('en');
+
+    const toggleLanguage = () => {
+        setLanguage(language === 'en' ? 'sv' : 'en');
+    };
+
+
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
 
@@ -86,14 +93,29 @@ const Navbar = () => {
                 </li>
             </ul>
             <div className="flex gap-4 items-center">
-                <GrLanguage
-                    size={32}
-                    className='hidden md:flex hover:text-[#41BFF5] transition-colors cursor-pointer'
-                />
-                <span className='text-xl'>en</span>
-                <span className='text-xl'>|</span>
-                <span className='text-xl opacity-50'>sv</span>
+
+                <div className="flex items-center bg-[rgba(255,255,255,0.1)] rounded-full p-1 cursor-pointer">
+                    <span
+                        className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'en' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
+                            }`}
+                        onClick={() => setLanguage('en')}
+                    >
+                        en
+                    </span>
+                    <span
+                        className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'sv' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
+                            }`}
+                        onClick={() => setLanguage('sv')}
+                    >
+                        sv
+                    </span>
+                </div>
             </div>
+
+
+
+
+
 
             {isOpen ? (
                 <RxCross2
