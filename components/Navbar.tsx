@@ -35,7 +35,9 @@ const Navbar = () => {
 
     const changeLanguage = (lng: string) => {
         setLanguage(lng);
-        router.push(`/${lng}`)
+        setTimeout(() => {
+            router.push(`/${lng}`);
+        }, 150);
     };
 
     const handleScroll = () => {
@@ -155,7 +157,7 @@ const Navbar = () => {
                             }}
                             className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
                         >
-                            <Link href='#about' onClick={handleNavLinkClick}>About Us</Link>
+                            <Link href='#about' onClick={handleNavLinkClick}>{data.navbar.about}</Link>
                         </li>
                         <li
                             onClick={() => {
@@ -163,7 +165,7 @@ const Navbar = () => {
                             }}
                             className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
                         >
-                            <Link href='#projects' onClick={handleNavLinkClick}>Portfolio</Link>
+                            <Link href='#projects' onClick={handleNavLinkClick}>{data.navbar.portfolio}</Link>
                         </li>
                         {/* <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
                             <Link href='#services'>Services</Link>
@@ -174,7 +176,7 @@ const Navbar = () => {
                             }}
                             className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
                         >
-                            <Link href='#contact' onClick={handleNavLinkClick}>Contact</Link>
+                            <Link href='#contact' onClick={handleNavLinkClick}>{data.navbar.contact}</Link>
                         </li>
                         <GrLanguage
                             size={32}
