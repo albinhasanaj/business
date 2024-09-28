@@ -8,8 +8,8 @@ const Hero = () => {
         "Web Development",
         "UI/UX Design",
         "SEO Optimization",
-        "Digital Marketing",
         "Performance Optimization",
+        "Digital Marketing",
     ];
 
     const [wordIndex, setWordIndex] = useState(0);
@@ -24,11 +24,10 @@ const Hero = () => {
 
     // Function to create animated letters
     const AnimatedLetters = ({ text }: { text: string }) => {
-        // Split text into an array of letters, preserving spaces
         const letters = Array.from(text);
 
         return (
-            <span style={{ display: "inline-block", whiteSpace: "pre" }}>
+            <span style={{ display: "inline-block" }}>
                 <AnimatePresence>
                     {letters.map((letter, index) => (
                         <motion.span
@@ -41,7 +40,7 @@ const Hero = () => {
                                 ease: "easeOut",
                                 delay: index * 0.05,
                             }}
-                            style={{ display: "inline-block", whiteSpace: "pre" }}
+                            style={{ display: "inline-block" }}
                             className="py-1"
                         >
                             {letter}
@@ -52,9 +51,10 @@ const Hero = () => {
         );
     };
 
+
     return (
         <section className="relative flex flex-col gap-4 items-center justify-center size-full px-4 md:items-start md:px-8 lg:px-16">
-            <h1 className="heading1 tracking-tight text-center md:text-left text-4xl sm:text-5xl md:text-5xl xl:text-5xl">
+            <h1 className="heading1 tracking-tight text-center md:text-left text-2xl sm:text-3xl md:text-5xl xl:text-5xl">
                 {/* Container for the animated word */}
                 <span className="inline-block relative overflow-hidden">
                     <AnimatePresence mode="wait">
