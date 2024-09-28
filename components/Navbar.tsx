@@ -24,13 +24,13 @@ const Navbar = () => {
     const [language, setLanguage] = useState(lang);
 
 
-    let data: any = {};
+    let translations;
 
     //if lang == sv load locales/sv/lang.js else load locales/en/lang.js
     if (lang === 'sv') {
-        data = require('@/locales/sv/lang.js');
+        translations = require('@/locales/sv/lang.js');
     } else {
-        data = require('@/locales/en/lang.js');
+        translations = require('@/locales/en/lang.js');
     }
 
     const changeLanguage = (lng: string) => {
@@ -101,16 +101,16 @@ const Navbar = () => {
             </span>
             <ul className='md:gap-4 lg:gap-8 hidden md:flex select-none absolute left-[50%] px-0 -translate-x-1/2'>
                 <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href="#about">{data.navbar.about}</Link>
+                    <Link href="#about">{translations.navbar.about}</Link>
                 </li>
                 <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href="#projects">{data.navbar.portfolio}</Link>
+                    <Link href="#projects">{translations.navbar.portfolio}</Link>
                 </li>
                 {/* <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
                     <Link href='#services'>Services</Link>
                 </li> */}
                 <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href="#contact">{data.navbar.contact}</Link>
+                    <Link href="#contact">{translations.navbar.contact}</Link>
                 </li>
             </ul>
             <div className="hidden md:flex gap-4 items-center">
@@ -161,7 +161,7 @@ const Navbar = () => {
                             }}
                             className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
                         >
-                            <Link href='#about' onClick={handleNavLinkClick}>{data.navbar.about}</Link>
+                            <Link href='#about' onClick={handleNavLinkClick}>{translations.navbar.about}</Link>
                         </li>
                         <li
                             onClick={() => {
@@ -169,7 +169,7 @@ const Navbar = () => {
                             }}
                             className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
                         >
-                            <Link href='#projects' onClick={handleNavLinkClick}>{data.navbar.portfolio}</Link>
+                            <Link href='#projects' onClick={handleNavLinkClick}>{translations.navbar.portfolio}</Link>
                         </li>
                         {/* <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
                             <Link href='#services'>Services</Link>
@@ -180,7 +180,7 @@ const Navbar = () => {
                             }}
                             className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
                         >
-                            <Link href='#contact' onClick={handleNavLinkClick}>{data.navbar.contact}</Link>
+                            <Link href='#contact' onClick={handleNavLinkClick}>{translations.navbar.contact}</Link>
                         </li>
                         <div className="md:hidden flex gap-4 items-center">
 
