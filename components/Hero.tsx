@@ -97,7 +97,7 @@ const Hero = () => {
                 </p>
             </motion.div>
 
-            <Button text={translations.hero.button} />
+            <Button text={translations.hero.button} href="#contact" />
 
             {/* Top left circle on mobile, moves to the left on larger screens */}
             <div className="size-24 md:size-40 bg-[#40BFF5] rounded-full absolute left-[5%] top-[15%] md:left-[10%] md:top-[10%] blur-[30px] md:blur-[50px]" />
