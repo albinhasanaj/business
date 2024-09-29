@@ -23,7 +23,7 @@ const SmileySpeak = () => {
                     <p className='text-gray-500 pt-[200px]'>For the full project, visit <span className='font-bold cursor-pointer'>[URL FOR THE PROJECT]</span></p>
                 </section>
             ) : (
-                <div className="h-screen bg-[#DDDDDD]">
+                <div className="min-h-screen bg-[#DDDDDD]">
                     <div className="flex flex-col items-center w-full">
                         <div className="w-full py-8">
                             <SmileySpeakNav />
