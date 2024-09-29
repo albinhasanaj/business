@@ -77,8 +77,8 @@
 /* Gradient text when button is active */
 .gradient-text {
     background: linear-gradient(90deg, #3D66F5, #4C19AE);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     transition: all 0.3s ease;
 }
