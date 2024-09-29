@@ -80,5 +80,5 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }

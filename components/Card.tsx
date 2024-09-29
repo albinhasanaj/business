@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';  // Import framer-motion
 import "../styles/about.css";
 
 const Card = ({ title, text }: { title: string; text: string[] }) => {
@@ -22,9 +23,18 @@ const Card = ({ title, text }: { title: string; text: string[] }) => {
                 </div>
                 <div className={`btn ${isActive ? 'active' : ''}`} onClick={toggleButton}></div>
             </div>
-            <div>
-                <p className={`text-lg mt-4 font-medium text-black ${isActive ? '' : 'hidden'}`}>{text}</p>
-            </div>
+
+            {/* Animate the dropdown using framer-motion */}
+            <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="overflow-hidden"
+            >
+                <p className="text-lg mt-4 font-medium text-black">
+                    {text}
+                </p>
+            </motion.div>
         </div>
     );
 };
