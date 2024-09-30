@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useParams } from "next/navigation";
-import Button from "../Button";
-import { v4 as uuid4 } from "uuid";
+import Button from "./Button";
 
 const Hero = () => {
     const params = useParams();
@@ -46,10 +45,11 @@ const Hero = () => {
         const letters = Array.from(text);
 
         return (
-            <span style={{ display: "inline-block" }}>
+            <span style={{ display: "inline-block" }}
+            >
                 {letters.map((letter, index) => (
                     <motion.span
-                        key={headingText[wordIndex] || `word-${wordIndex}`} // Ensure unique key for words
+                        key={index}
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -50, opacity: 0 }}
@@ -75,13 +75,14 @@ const Hero = () => {
                 <span className="inline-block relative overflow-hidden">
                     <AnimatePresence mode="wait">
                         <motion.span
-                            key={headingText}
+                            key={`${wordIndex}-${headingText[wordIndex]}`} // Unique key per word
                             style={{ display: "inline-block", whiteSpace: "pre" }}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                         >
-                            <AnimatedLetters text={headingText[wordIndex]} />
+                            <AnimatedLetters
+                                text={headingText[wordIndex]} />
                         </motion.span>
                     </AnimatePresence>
                 </span>
@@ -112,6 +113,7 @@ const Hero = () => {
             <AnimatePresence>
                 {/* Visual effects */}
                 <motion.div
+                    key="circle1"
                     animate={{
                         y: [0, -5, 0, 5, 0],
                         opacity: [1, 0.95, 1, 0.9, 1],
@@ -128,6 +130,7 @@ const Hero = () => {
                 />
 
                 <motion.div
+                    key="circle2"
                     animate={{
                         y: [0, -5, 0, 5, 0],
                         opacity: [1, 0.95, 1, 0.9, 1],
