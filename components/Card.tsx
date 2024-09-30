@@ -16,7 +16,13 @@ const Card = ({ title, text }: { title: string; text: string[] }) => {
             {/* Card content */}
             <div className="flex justify-between items-center">
                 <div className='flex gap-3'>
-                    <Image src="/icons/phone.svg" alt="icon" width={40} height={20} />
+                    <Image
+                        src="/icons/phone.svg"
+                        alt="icon"
+                        width={40}
+                        height={20}
+                        style={{ width: "auto", height: "100%" }} // Set one dimension to auto to maintain aspect ratio
+                    />
                     <div className={`sm:text-3xl text-2xl font-medium ${isActive ? 'gradient-text' : 'text-black'}`}>
                         {title}
                     </div>

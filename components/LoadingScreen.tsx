@@ -24,7 +24,14 @@ const LoadingScreen = () => {
 
             <div className='flex items-center gap-10'>
                 <div className="rocket-shake">
-                    <Image src={"/images/logo/tachyon-icon.png"} alt="Tachyon Logo" width={120} height={100} />
+                    <Image
+                        src={"/images/logo/tachyon-icon.png"}
+                        alt="Tachyon Logo"
+                        width={120}
+                        height={100}
+                        style={{ width: "auto", height: "100%" }} // Maintain aspect ratio by setting one to "auto"
+                        priority
+                    />
                 </div>
                 <Image src={"/images/logo/tachyon-text.png"} alt="Tachyon Logo" width={250} height={100} className="md:block hidden" />
             </div>

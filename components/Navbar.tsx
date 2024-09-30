@@ -94,7 +94,7 @@ const Navbar = () => {
             <span className='text-4xl font-bold tracking-wide'>
                 <Link href='#home' onClick={handleNavLinkClick}>
                     <Image src="/images/logo/tachyon.png" alt="Tachyon" width={64} height={64}
-                        className='cursor-pointer md:hover:scale-105 transition-transform h-[64px] w-auto'
+                        className='cursor-pointer md:hover:scale-105 transition-transform h-[48px] md:h-[64px] w-auto'
                         unoptimized={true}
                     />
                 </Link>

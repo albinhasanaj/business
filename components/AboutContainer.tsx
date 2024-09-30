@@ -7,7 +7,8 @@ interface AboutContainerProps {
 
 const AboutContainer: React.FC<AboutContainerProps> = ({ lang }) => {
     return (
-        <div className="flex relative mt-[12vh]">
+        // mb-16 for laptop
+        <div className="flex relative mt-[8vh] mb-[16vh]">
             <div className='flex flex-col md:flex-row max-w-[1440px] justify-between md2:gap-0 gap-4'>
                 <div>
                     <About lang={lang} />
