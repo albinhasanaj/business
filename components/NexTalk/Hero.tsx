@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useParams } from "next/navigation";
-import Button from "./Button";
+import Button from "../Button";
 import { v4 as uuid4 } from "uuid";
 
 const Hero = () => {

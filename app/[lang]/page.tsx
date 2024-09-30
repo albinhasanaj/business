@@ -1,10 +1,10 @@
 import AboutContainer from "@/components/AboutContainer";
 import Contact from "@/components/Contact";
-import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
+import Hero from "@/components/NexTalk/Hero";
+import Navbar from "@/components/NexTalk/Navbar";
 import Projects from "@/components/Projects";
 import Wave from "react-wavify";
-import LoadingWrapper from "@/components/LoadingWrapper";
+import LoadingWrapper from "@/components/NexTalk/LoadingWrapper";
 
 const Home = ({ params }: { params: { lang: string } }) => {
 

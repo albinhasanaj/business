@@ -2,7 +2,7 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
-import LoadingScreen from "@/components/LoadingScreen";
+import LoadingScreen from "@/components/NexTalk/LoadingScreen";
 import { motion } from "framer-motion";
 
 export default function LoadingWrapper({ children }: { children: React.ReactNode }) {

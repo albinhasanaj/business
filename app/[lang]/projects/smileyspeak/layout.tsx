@@ -1,4 +1,4 @@
-import SmileySpeakNav from "@/components/SmileySpeakNav";
+import SmileySpeakNav from "@/components/SmileySpeak/SmileySpeakNav";
 import { Itim } from "next/font/google";
 import { ReactNode } from "react";
 import "./styles/smileyspeak.css";

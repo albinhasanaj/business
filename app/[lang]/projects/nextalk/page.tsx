@@ -1,9 +1,9 @@
 "use client"
-import NexTalkChatBubble from '@/components/NexTalkChatBubble';
-import NexTalkChatNavbar from '@/components/NexTalkChatNav';
-import NexTalkNav from '@/components/NexTalkNav';
-import NexTalkSearchbar from '@/components/NexTalkSearchbar';
-import TryForFreeBtn from '@/components/TryForFreeBtn';
+import NexTalkChatBubble from '@/components/NexTalk/NexTalkChatBubble';
+import NexTalkChatNavbar from '@/components/NexTalk/NexTalkChatNav';
+import NexTalkNav from '@/components/NexTalk/NexTalkNav';
+import NexTalkSearchbar from '@/components/NexTalk/NexTalkSearchbar';
+import TryForFreeBtn from '@/components/NexTalk/TryForFreeBtn';
 import Image from 'next/image'
 import { Fragment, useState } from 'react';
 

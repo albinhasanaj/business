@@ -1,6 +1,6 @@
 "use client";
-import SmileySpeakCard from "@/components/SmileySpeakCard";
-import SmileySpeakNav from "@/components/SmileySpeakNav";
+import SmileySpeakCard from "@/components/SmileySpeak/SmileySpeakCard";
+import SmileySpeakNav from "@/components/SmileySpeak/SmileySpeakNav";
 import { Fragment, useState } from "react";
 import { Itim } from "next/font/google";
 
