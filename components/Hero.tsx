@@ -6,7 +6,7 @@ import Button from "./Button";
 
 const Hero = () => {
     const params = useParams();
-    const lang = params?.lang || 'en';
+    const lang = params?.lang || "en";
     const [translations, setTranslations] = useState<any>(null);
     const [wordIndex, setWordIndex] = useState(0);
 
@@ -14,9 +14,9 @@ const Hero = () => {
         const loadTranslations = async () => {
             let loadedTranslations;
             if (lang === "sv") {
-                loadedTranslations = await import('@/locales/sv/lang.js');
+                loadedTranslations = await import("@/locales/sv/lang.js");
             } else {
-                loadedTranslations = await import('@/locales/en/lang.js');
+                loadedTranslations = await import("@/locales/en/lang.js");
             }
             setTranslations(loadedTranslations.default);
         };
@@ -24,39 +24,41 @@ const Hero = () => {
         loadTranslations();
     }, [lang]);
 
-    // timer that runs every 3 second
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setWordIndex((prev) => (prev + 1) % 5); //5 is the number of words in the array
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, []);
-
     if (!translations) {
         return null;
     }
 
-    // Ensure headingText is defined and not empty
-    const headingText = translations.hero.heading || 'Default Heading';
+    const headingText = translations.hero.heading || "Default Heading";
 
-    // Function to create animated letters
     const AnimatedLetters = ({ text }: { text: string }) => {
+        useEffect(() => {
+            //calculate for max delay
+            const animationDelay = text.length * 80; // 80ms per character
+
+            const timeout = setTimeout(() => {
+                setWordIndex((prev) => (prev + 1) % 5); // Move to next word
+            }, animationDelay + 2000); // Extra 2-second delay
+
+            // Cleanup timeout when the component unmounts or text changes
+            return () => clearTimeout(timeout);
+        }, [text]);
+
         const letters = Array.from(text);
 
         return (
-            <span style={{ display: "inline-block" }}
-            >
+            <span style={{ display: "inline-block" }}>
                 {letters.map((letter, index) => (
                     <motion.span
                         key={index}
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -50, opacity: 0 }}
+                        initial={{ y: 50, opacity: 0.2, scale: 0.95 }}
+                        animate={{ y: 0, opacity: 1, scale: 1 }}
+                        exit={{ y: -50, opacity: 0.2, scale: 0.95 }}
                         transition={{
-                            duration: 0.6,
-                            ease: "easeOut",
-                            delay: index * 0.05,
+                            type: "spring",
+                            stiffness: 120,
+                            damping: 10,
+                            mass: 0.5,
+                            delay: index * 0.08,
                         }}
                         style={{ display: "inline-block" }}
                         className="py-1"
