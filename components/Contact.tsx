@@ -3,13 +3,46 @@ import React, { useState } from 'react'
 import "@/styles/budgetslider.css"
 
 const Contact = () => {
-    const [value, setValue] = useState(0);
-    const [rangeValue, setRangeValue] = useState(0);
+    const [value, setValue] = useState(0); // slider value
+    const [rangeValue, setRangeValue] = useState(0); // computed dollar amount
+    const [customValue, setCustomValue] = useState<number | null>(null); // for custom input
+    const [isEditing, setIsEditing] = useState(false); // toggle for input/edit state
 
     const handleSliderChange = (e: any) => {
-        setValue(e.target.value);
-        setRangeValue(e.target.value);
+        const newValue = Number(e.target.value);
+        setValue(newValue);
+        setRangeValue(newValue);
+        setCustomValue((newValue * 150) + 300); // update custom input to reflect slider value in dollars
     };
+
+    const handleCustomChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newCustomValue = Number(e.target.value);
+        setCustomValue(newCustomValue);
+        const sliderEquivalent = (newCustomValue - 300) / 150; // convert dollar amount to slider range
+        if (sliderEquivalent >= 0 && sliderEquivalent <= 100) {
+            setValue(sliderEquivalent); // set slider value to match the custom input
+            setRangeValue(sliderEquivalent);
+        }
+    };
+
+    const handleCustomSubmit = () => {
+        if (customValue && customValue >= 300 && customValue <= 15000) {
+            setRangeValue((customValue - 300) / 150); // convert custom value to slider range
+            setValue((customValue - 300) / 150); // update slider position
+        } else if (customValue !== null && customValue > 15000) {
+            setRangeValue((15000 - 300) / 150);
+            setValue((15000 - 300) / 150); // ensure slider stays at max
+            setCustomValue(15000); // max out at 15000+
+        } else {
+            alert('Value must be at least 300');
+            setCustomValue(300); // autocomplete to minimum if invalid
+            setRangeValue(0); // reset slider to minimum
+            setValue(0);
+        }
+        setIsEditing(false);
+    };
+
+    const displayedValue = (rangeValue * 150) + 300 > 14999 ? '15000+' : (rangeValue * 150) + 300;
 
     return (
         <div id='contact' className='h-auto min-h-screen flex items-center justify-center w-full'>
@@ -21,13 +54,8 @@ const Contact = () => {
                             Looking to get in touch? You can either fill out the form with your request or browse the contact details to choose your preferred method of contacting us.
                         </p>
                     </div>
-                    <div className='flex flex-col gap-5'>
-                        <div className='xl:w-[550px] xl:h-[350px] sm:w-[500px] sm:h-[320px] w-[300px] h-[180px] bg-white flex items-center justify-center'>
-                            <h1 className='text-black text-center text-4xl'>IMAGE FOR <br /> CONTACT FORM</h1>
-                        </div>
-                        {/* <div className='xl:w-[680px] xl:h-[460px] sm:w-[500px] sm:h-[320px] w-[300px] h-[180px] bg-white flex items-center justify-center'>
-                            <h1 className='text-black text-center text-4xl'>IMAGE FOR <br /> CONTACT FORM</h1>
-                        </div> */}
+                    <div className='xl:w-[550px] xl:h-[350px] sm:w-[500px] sm:h-[320px] w-[300px] h-[180px] bg-white flex items-center justify-center'>
+                        <h1 className='text-black text-center text-4xl'>IMAGE FOR <br /> CONTACT FORM</h1>
                     </div>
                 </div>
 
@@ -50,9 +78,25 @@ const Contact = () => {
                                     className="slider"
                                     style={{ '--value': `${value}%` } as React.CSSProperties}
                                 />
-                                <p className='text-white'>
-                                    ${((rangeValue * 150) + 300) > 15000 ? '15000+' : ((rangeValue * 150) + 300)}
-                                </p>
+                                {isEditing ? (
+                                    <div className='flex items-center'>
+                                        <span className='text-white'>$</span>
+                                        <input
+                                            type="text"
+                                            value={customValue || ''}
+                                            onChange={handleCustomChange}
+                                            onBlur={handleCustomSubmit}
+                                            className="text-white bg-transparent w-[50px] border-none outline-none"
+                                        />
+                                    </div>
+                                ) : (
+                                    <p
+                                        className='text-white cursor-pointer'
+                                        onClick={() => setIsEditing(true)}
+                                    >
+                                        ${displayedValue}
+                                    </p>
+                                )}
                             </div>
                         </div>
                         <button className='bg-white w-[300px] xs:w-[350px] xl:w-[475px] h-[65px] text-black text-[16px] flex items-center justify-center font-medium rounded-full'>SHARE YOUR FEEDBACK</button>
@@ -63,4 +107,4 @@ const Contact = () => {
     )
 }
 
-export default Contact
+export default Contact;
