@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import "@/styles/budgetslider.css"
 
 const Contact = () => {
     const [value, setValue] = useState(0);
@@ -11,17 +12,22 @@ const Contact = () => {
     };
 
     return (
-        <div id='contact' className='h-auto min-h-screen flex items-center justify-center w-full '>
+        <div id='contact' className='h-auto min-h-screen flex items-center justify-center w-full'>
             <div className='max-w-[1440px] gap-10 md2:gap-0 w-full flex flex-col md2:flex-row items-center justify-between mx-16'>
                 <div className='flex flex-col md2:w-[750px] gap-10 items-center md2:items-start md2:pt-0 pt-3'>
                     <div className='flex flex-col gap-2 items-center md2:items-start xl:w-[750px] sm:w-[500px]'>
-                        <h1 className='text-white font-bold text-3xl sm:text-4xl xl:text-5xl'>Contact us</h1>
-                        <p className='text-white text-[16px] sm:text-xl xl:text-2xl text-center md2:text-start'>
+                        <h1 className='text-white font-bold text-3xl sm:text-4xl'>Contact us</h1>
+                        <p className='text-white text-[16px] sm:text-xl text-center md2:text-start'>
                             Looking to get in touch? You can either fill out the form with your request or browse the contact details to choose your preferred method of contacting us.
                         </p>
                     </div>
-                    <div className='xl:w-[680px] xl:h-[460px] sm:w-[500px] sm:h-[320px] w-[300px] h-[180px] bg-white flex items-center justify-center'>
-                        <h1 className='text-black text-center text-4xl'>IMAGE FOR <br /> CONTACT FORM</h1>
+                    <div className='flex flex-col gap-5'>
+                        <div className='xl:w-[550px] xl:h-[350px] sm:w-[500px] sm:h-[320px] w-[300px] h-[180px] bg-white flex items-center justify-center'>
+                            <h1 className='text-black text-center text-4xl'>IMAGE FOR <br /> CONTACT FORM</h1>
+                        </div>
+                        {/* <div className='xl:w-[680px] xl:h-[460px] sm:w-[500px] sm:h-[320px] w-[300px] h-[180px] bg-white flex items-center justify-center'>
+                            <h1 className='text-black text-center text-4xl'>IMAGE FOR <br /> CONTACT FORM</h1>
+                        </div> */}
                     </div>
                 </div>
 
