@@ -14,7 +14,7 @@ const AboutContainer: React.FC<AboutContainerProps> = ({ lang }) => {
                     <About lang={lang} />
                 </div>
                 <div>
-                    <CardsContainer />
+                    <CardsContainer lang={lang} />
                 </div>
             </div>
         </div>
