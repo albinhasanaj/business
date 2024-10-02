@@ -4,7 +4,7 @@ import Wave from "react-wavify";
 const Hero = () => {
     return (
         <div>
-            <section className='w-full h-auto py-[250px] bg-black flex flex-col gap-10 items-center justify-center'>
+            <section className='w-full h-screen bg-black flex flex-col gap-10 items-center justify-center '>
                 <div className='flex flex-col items-center gap-5'>
                     <h1 className='w-[1000px] text-4xl text-center text-white'>OBS: THIS PREVIEW OF NEXTALK IS ONLY A <span className='underline'>PREVIEW</span> SO ALL FEATURES WON'T BE WORKING AS INTENDED!</h1>
                     <Link
@@ -30,7 +30,7 @@ const Hero = () => {
                     points: 5,
                 }}
             />
-            <section className="w-full h-auto bg-white relative mt-20 pb-10 px-20">
+            <section className="w-full h-auto bg-white relative  pb-10 px-20">
                 <div className="flex justify-start w-full">
                     <div className="text-black flex flex-col gap-3 max-w-lg">
                         <h1 className="text-3xl font-semibold">Project Overview</h1>
@@ -41,23 +41,23 @@ const Hero = () => {
                 <div className="flex justify-end w-full">
                     <div className="text-black flex flex-col gap-3 max-w-lg">
                         <h1 className="text-3xl font-semibold">Scope and Limitations (Demo Disclaimer)</h1>
-                        <p>In this demo version of NexTalk, some features have been intentionally limited to streamline the demonstration and focus on core functionality. Please note the following limitations:
-                            <ul>
-                                <li>
-                                    <span className="font-semibold">Account Creation:</span> Users cannot create their own accounts. For demonstration purposes, user profiles are pre-configured and hardcoded.
-                                </li>
-                                <li>
-                                    <span className="font-semibold">Messaging:</span> The ability to send and receive live messages is disabled in this demo version. While the interface reflects the intended chat experience, live interaction is unavailable.
+                        <p>In this demo version of NexTalk, some features have been intentionally limited to streamline the demonstration and focus on core functionality. Please note the following limitations:</p>
+                        <ul>
+                            <li>
+                                <span className="font-semibold">Account Creation:</span> Users cannot create their own accounts. For demonstration purposes, user profiles are pre-configured and hardcoded.
+                            </li>
+                            <li>
+                                <span className="font-semibold">Messaging:</span> The ability to send and receive live messages is disabled in this demo version. While the interface reflects the intended chat experience, live interaction is unavailable.
 
-                                </li>
-                                <li>
-                                    <span className="font-semibold">Profile Editing:</span> You cannot modify user profile details, either for yourself or your friends. The demo does not support changes to display names, avatars, or other profile information.
-                                </li>
-                                <li>
-                                    <span className="font-semibold">Friend Management:</span> The option to add or remove friends is also disabled. Friend lists in the demo are static, reflecting the core functionality but not allowing for dynamic user connections. These limitations ensure that the demo runs smoothly while showcasing the application's potential without unnecessary complexity.
-                                </li>
-                            </ul>
-                        </p>
+                            </li>
+                            <li>
+                                <span className="font-semibold">Profile Editing:</span> You cannot modify user profile details, either for yourself or your friends. The demo does not support changes to display names, avatars, or other profile information.
+                            </li>
+                            <li>
+                                <span className="font-semibold">Friend Management:</span> The option to add or remove friends is also disabled. Friend lists in the demo are static, reflecting the core functionality but not allowing for dynamic user connections. These limitations ensure that the demo runs smoothly while showcasing the application's potential without unnecessary complexity.
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
 
