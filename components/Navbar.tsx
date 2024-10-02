@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { GrLanguage } from "react-icons/gr";
 import { CgMenuCheese } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter, useParams } from 'next/navigation'; // Use next/navigation
+import { useRouter, useParams, usePathname } from 'next/navigation'; // Use next/navigation
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,10 +19,14 @@ const Navbar = () => {
 
     const router = useRouter();
     const params = useParams();
+    const pathname = usePathname(); // Use usePathname
     const lang = params.lang || 'en';
 
     const [language, setLanguage] = useState(lang);
 
+    // const redirect = pathname.includes("projects") ? true : false;
+    //use memo to avoid re-render
+    const redirect = useMemo(() => pathname.includes("projects") ? true : false, [pathname]);
 
     let translations;
 
@@ -92,27 +96,29 @@ const Navbar = () => {
                 } flex w-full items-center text-white py-4 px-8 md:px-16 justify-between`}
         >
             <span className='text-4xl font-bold tracking-wide'>
-                <Link href='#home' onClick={handleNavLinkClick}>
+                <Link href={redirect ? `/${language}` : '/'} onClick={handleNavLinkClick}>
                     <Image src="/images/logo/tachyon.png" alt="Tachyon" width={64} height={64}
                         className='cursor-pointer md:hover:scale-105 transition-transform h-[48px] md:h-[64px] w-auto'
                         unoptimized={true}
                     />
                 </Link>
             </span>
-            <ul className='md:gap-4 lg:gap-8 hidden md:flex select-none absolute left-[50%] px-0 -translate-x-1/2'>
-                <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href="#about">{translations.navbar.about}</Link>
-                </li>
-                <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href="#projects">{translations.navbar.portfolio}</Link>
-                </li>
-                {/* <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
+            {!redirect && (
+                <ul className='md:gap-4 lg:gap-8 hidden md:flex select-none absolute left-[50%] px-0 -translate-x-1/2'>
+                    <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
+                        <Link href="#about">{translations.navbar.about}</Link>
+                    </li>
+                    <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
+                        <Link href="#projects">{translations.navbar.portfolio}</Link>
+                    </li>
+                    {/* <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
                     <Link href='#services'>Services</Link>
                 </li> */}
-                <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
-                    <Link href="#contact">{translations.navbar.contact}</Link>
-                </li>
-            </ul>
+                    <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
+                        <Link href="#contact">{translations.navbar.contact}</Link>
+                    </li>
+                </ul>
+            )}
             <div className="hidden md:flex gap-4 items-center">
 
                 <div className="flex items-center bg-[rgba(255,255,255,0.1)] rounded-full p-1 cursor-pointer">
@@ -136,79 +142,83 @@ const Navbar = () => {
                     </span>
                 </div>
             </div>
-            {isOpen ? (
-                <RxCross2
-                    size={32}
-                    className='md:hidden text-white cursor-pointer'
-                    onClick={() => {
-                        setIsOpen(false);
-                    }}
-                />
-            ) : (
-                <CgMenuCheese
-                    size={32}
-                    className='md:hidden text-white cursor-pointer'
-                    onClick={() => setIsOpen(true)}
-                />
-            )}
+            {
+                isOpen ? (
+                    <RxCross2
+                        size={32}
+                        className='md:hidden text-white cursor-pointer'
+                        onClick={() => {
+                            setIsOpen(false);
+                        }}
+                    />
+                ) : (
+                    <CgMenuCheese
+                        size={32}
+                        className='md:hidden text-white cursor-pointer'
+                        onClick={() => setIsOpen(true)}
+                    />
+                )
+            }
 
-            {isOpen && (
-                <div className='md:hidden absolute top-full right-4 w-[80%] max-w-sm rounded-lg shadow-lg p-6 z-40 bg-[rgba(0,0,0,0.5)] text-white'>
-                    <ul className='flex flex-col gap-6 items-start select-none'>
-                        <li
-                            onClick={() => {
-                                setIsOpen(false);
-                            }}
-                            className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
-                        >
-                            <Link href='#about' onClick={handleNavLinkClick}>{translations.navbar.about}</Link>
-                        </li>
-                        <li
-                            onClick={() => {
-                                setIsOpen(false);
-                            }}
-                            className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
-                        >
-                            <Link href='#projects' onClick={handleNavLinkClick}>{translations.navbar.portfolio}</Link>
-                        </li>
-                        {/* <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
+            {
+                isOpen && (
+                    <div className='md:hidden absolute top-full right-4 w-[80%] max-w-sm rounded-lg shadow-lg p-6 z-40 bg-[rgba(0,0,0,0.5)] text-white'>
+                        <ul className='flex flex-col gap-6 items-start select-none'>
+                            <li
+                                onClick={() => {
+                                    setIsOpen(false);
+                                }}
+                                className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
+                            >
+                                <Link href='#about' onClick={handleNavLinkClick}>{translations.navbar.about}</Link>
+                            </li>
+                            <li
+                                onClick={() => {
+                                    setIsOpen(false);
+                                }}
+                                className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
+                            >
+                                <Link href='#projects' onClick={handleNavLinkClick}>{translations.navbar.portfolio}</Link>
+                            </li>
+                            {/* <li className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'>
                             <Link href='#services'>Services</Link>
                         </li> */}
-                        <li
-                            onClick={() => {
-                                setIsOpen(false);
-                            }}
-                            className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
-                        >
-                            <Link href='#contact' onClick={handleNavLinkClick}>{translations.navbar.contact}</Link>
-                        </li>
-                        <div className="md:hidden flex gap-4 items-center">
+                            <li
+                                onClick={() => {
+                                    setIsOpen(false);
+                                }}
+                                className='text-lg font-medium hover:text-[#41BFF5] transition-colors cursor-pointer'
+                            >
+                                <Link href='#contact' onClick={handleNavLinkClick}>{translations.navbar.contact}</Link>
+                            </li>
+                            <div className="md:hidden flex gap-4 items-center">
 
-                            <div className="flex items-center bg-[rgba(255,255,255,0.1)] rounded-full p-1 cursor-pointer">
-                                <span
-                                    className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'en' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
-                                        }`}
-                                    onClick={() => {
-                                        changeLanguage('en');
-                                    }}
-                                >
-                                    en
-                                </span>
-                                <span
-                                    className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'sv' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
-                                        }`}
-                                    onClick={() => {
-                                        changeLanguage('sv');
-                                    }}
-                                >
-                                    sv
-                                </span>
+                                <div className="flex items-center bg-[rgba(255,255,255,0.1)] rounded-full p-1 cursor-pointer">
+                                    <span
+                                        className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'en' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
+                                            }`}
+                                        onClick={() => {
+                                            changeLanguage('en');
+                                        }}
+                                    >
+                                        en
+                                    </span>
+                                    <span
+                                        className={`px-4 py-1 rounded-full transition-colors duration-300 text-lg ${language === 'sv' ? 'bg-[#41BFF5] text-white' : 'text-white hover:text-[#41BFF5]'
+                                            }`}
+                                        onClick={() => {
+                                            changeLanguage('sv');
+                                        }}
+                                    >
+                                        sv
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    </ul>
-                </div>
-            )}
-        </nav>
+                        </ul>
+                    </div>
+                )
+            }
+        </nav >
     );
 };
 

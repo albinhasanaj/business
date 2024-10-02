@@ -1,7 +1,6 @@
 import AboutContainer from "@/components/AboutContainer";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import Wave from "react-wavify";
 import LoadingWrapper from "@/components/LoadingWrapper";
@@ -11,9 +10,6 @@ const Home = ({ params }: { params: { lang: string } }) => {
 
   return (
     <LoadingWrapper>
-      <header className="w-full flex justify-center absolute px-4">
-        <Navbar />
-      </header>
       <main className="flex flex-col">
         <div className="min-h-screen h-[650px] flex justify-center blue__gradient relative">
           <div className="max-w-[1440px] w-full mb-16" id="home">
