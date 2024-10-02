@@ -1,21 +1,14 @@
-import SmileySpeakNav from "@/components/SmileySpeak/SmileySpeakNav";
-import { Itim } from "next/font/google";
 import { ReactNode } from "react";
-import "./styles/smileyspeak.css";
-import { Toaster } from "react-hot-toast";
 
-const itim = Itim({ weight: "400", subsets: ["latin"] });
+export const metadata = {
+    title: 'SmileySpeak Demo',
+    description: 'This is a preview of SmileySpeak, an application for posting comments.',
+}
 
 const SmileySpeakLayout = ({ children }: { children: ReactNode }) => {
     return (
         <html lang="en">
-            <body className={`${itim.className} bg-[#DDD] h-auto`}>
-                <header className="w-full ">
-                    <Toaster
-                        position="top-center"
-                        reverseOrder={false}
-                    />
-                </header>
+            <body className={`bg-black`}>
                 {children}
             </body>
         </html>
