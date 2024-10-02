@@ -44,7 +44,25 @@ const Home = ({ params }: { params: { lang: string } }) => {
         <div id="projects">
           <Projects lang={lang} />
         </div>
+        <div className="h-screen bg-white relative">placeholder</div>
         <div className="blue__gradient2">
+          <Wave
+            fill="#fff"
+            paused={false}
+            style={{
+              display: "flex",
+              width: "100%",
+              position: "relative",
+              bottom: 0,
+              rotate: "180deg",
+            }}
+            options={{
+              height: 20,
+              amplitude: 30,
+              speed: 0.15,
+              points: 5,
+            }}
+          />
           <Contact />
         </div>
       </main>
