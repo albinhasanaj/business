@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Wave from "react-wavify";
 import LoadingWrapper from "@/components/LoadingWrapper";
+import Navbar from "@/components/Navbar";
 
 const Home = ({ params }: { params: { lang: string } }) => {
   const lang = (params.lang === 'en' || params.lang === 'sv') ? params.lang : 'en';
@@ -11,6 +12,9 @@ const Home = ({ params }: { params: { lang: string } }) => {
   return (
     <LoadingWrapper>
       <main className="flex flex-col">
+        <header className="w-full flex justify-center absolute px-4 z-50">
+          <Navbar />
+        </header>
         <div className="min-h-screen h-[650px] flex justify-center blue__gradient relative">
           <div className="max-w-[1440px] w-full mb-16" id="home">
             <Hero />

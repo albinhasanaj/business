@@ -40,9 +40,11 @@ const Navbar = () => {
     const changeLanguage = (lng: string) => {
         setLanguage(lng);
         setTimeout(() => {
-            router.push(`/${lng}`);
+            const newPath = pathname.replace(`/${language}`, `/${lng}`);
+            router.push(newPath);
         }, 150);
     };
+
 
     const handleScroll = () => {
         if (ignoreScroll.current) return; // Add this check

@@ -1,7 +1,13 @@
 import Link from "next/link";
 import Wave from "react-wavify";
 
-const SmileySpeak = () => {
+const SmileySpeak = ({ lang }: { lang: String }) => {
+    let translations;
+    if (lang === 'sv') {
+        translations = require('@/locales/sv/lang.js');
+    } else {
+        translations = require('@/locales/en/lang.js');
+    }
     return (
         <div>
             <section className='w-full h-screen bg-black flex flex-col gap-10 items-center justify-center '>
