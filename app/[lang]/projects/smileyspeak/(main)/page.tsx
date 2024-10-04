@@ -1,22 +1,27 @@
-import Link from "next/link";
-import Wave from "react-wavify";
+"use client";
+import React from 'react';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
+import svTranslations from '@/locales/sv/lang.js';
+import enTranslations from '@/locales/en/lang.js';
+import Wave from 'react-wavify';
 
-const SmileySpeak = ({ lang }: { lang: String }) => {
-    let translations;
-    if (lang === 'sv') {
-        translations = require('@/locales/sv/lang.js');
-    } else {
-        translations = require('@/locales/en/lang.js');
-    }
+const SmileySpeak = () => {
+    const params = useParams();
+    const lang = params.lang || 'en';
+
+    const translations = lang === 'sv' ? svTranslations : enTranslations;
     return (
         <div>
             <section className='w-full h-screen bg-black flex flex-col gap-10 items-center justify-center '>
                 <div className='flex flex-col items-center gap-5'>
-                    <h1 className='w-[1000px] text-4xl text-center text-white'>OBS: THIS PREVIEW OF NEXTALK IS ONLY A <span className='underline'>PREVIEW</span> SO ALL FEATURES WON'T BE WORKING AS INTENDED!</h1>
-                    <Link
-                        target='_blank'
-                        href='https://smileyspeak-demo.vercel.app/'>
-                        <p className='text-xl text-gray-300 cursor-pointer font-bold hover:text-white hover:underline'>I understand and wish to proceed!</p>
+                    <h1 className='w-[1000px] text-4xl text-center text-white'>
+                        {translations.projects.message1} <span className='underline'>{translations.projects.span}</span> {translations.projects.message2}
+                    </h1>
+                    <Link target='_blank' href='https://smileyspeak-demo.vercel.app/'>
+                        <p className='text-xl text-gray-300 cursor-pointer font-bold hover:text-white hover:underline'>
+                            {translations.projects.link}
+                        </p>
                     </Link>
                 </div>
             </section>
@@ -39,51 +44,68 @@ const SmileySpeak = ({ lang }: { lang: String }) => {
             <section className="w-full h-auto bg-white relative  pb-10 px-20">
                 <div className="flex justify-start w-full">
                     <div className="text-black flex flex-col gap-3 max-w-lg">
-                        <h1 className="text-3xl font-semibold">Project Overview</h1>
-                        <p>SmileySpeak is a platform where users can share and post funny comments, much like Reddit. The project's primary goal is to offer a simple, engaging space for users to express humor and connect through shared moments of fun.</p>
+                        <h1 className="text-3xl font-semibold">{translations.projects.smileyspeak.project_overview.title}</h1>
+                        <p>{translations.projects.smileyspeak.project_overview.description1}</p>
                     </div>
                 </div>
 
                 <div className="flex justify-end w-full">
                     <div className="text-black flex flex-col gap-3 max-w-lg">
-                        <h1 className="text-3xl font-semibold">Scope and Limitations (Demo Disclaimer)</h1>
-                        <p>In this demo version of SmileySpeak, certain features are restricted:</p>
-                        <ul>
+                        <h1 className="text-3xl font-semibold">{translations.projects.smileyspeak.scope_and_limitations.title}</h1>
+                        <p>{translations.projects.smileyspeak.scope_and_limitations.description}</p>
+                        <ul className='flex flex-col gap-3'>
                             <li>
-                                Users are unable to like posts
+                                <span className='font-bold'>
+                                    {translations.projects.smileyspeak.scope_and_limitations.li1.span}
+                                </span>
+                                <p>{translations.projects.smileyspeak.scope_and_limitations.li1.text}</p>
                             </li>
                             <li>
-                                Posting new comments or threads is disabled.
+                                <span className='font-bold'>
+                                    {translations.projects.smileyspeak.scope_and_limitations.li2.span}
+                                </span>
+                                <p>{translations.projects.smileyspeak.scope_and_limitations.li2.text}</p>
                             </li>
                             <li>
-                                Profile editing options, such as updating username, email, or password, are unavailable.
+                                <span className='font-bold'>
+                                    {translations.projects.smileyspeak.scope_and_limitations.li3.span}
+                                </span>
+                                <p>{translations.projects.smileyspeak.scope_and_limitations.li3.text}</p>
                             </li>
                         </ul>
-                        <p>These limitations are designed to streamline the demo while showcasing the platform’s core functionality.</p>
+                        <p>{translations.projects.smileyspeak.scope_and_limitations.description2}</p>
                     </div>
                 </div>
 
                 <div className="flex justify-start w-full">
                     <div className="text-black flex flex-col gap-3 max-w-lg">
-                        <h1 className="text-3xl font-semibold">Development Process</h1>
-                        <p>SmileySpeak was developed using Next.js, a framework known for its efficient performance and scalability. The development process was relatively smooth, with no significant obstacles, thanks to the framework’s flexibility and ease of use.</p>
+                        <h1 className="text-3xl font-semibold">{translations.projects.smileyspeak.development_process.title}</h1>
+                        <p>{translations.projects.smileyspeak.development_process.description}</p>
                     </div>
                 </div>
 
                 <div className="flex justify-end w-full">
                     <div className="text-black flex flex-col gap-3 max-w-lg">
-                        <h1 className="text-3xl font-semibold">Key Features</h1>
-                        <p>The key features of SmileySpeak include:</p>
-                        <ul>
+                        <h1 className="text-3xl font-semibold">{translations.projects.smileyspeak.key_features.title}</h1>
+                        <p>{translations.projects.smileyspeak.key_features.description}</p>
+                        <ul className='flex flex-col gap-3'>
                             <li>
-                                The ability for users to post their own comments and engage in discussions.
+                                <span className='font-bold'>
+                                    {translations.projects.smileyspeak.key_features.li1.span}
+                                </span>
+                                <p>{translations.projects.smileyspeak.key_features.li1.text}</p>
                             </li>
                             <li>
-                                A "like" system where users can express their appreciation for other comments.
-
+                                <span className='font-bold'>
+                                    {translations.projects.smileyspeak.key_features.li2.span}
+                                </span>
+                                <p>{translations.projects.smileyspeak.key_features.li2.text}</p>
                             </li>
                             <li>
-                                Unique account creation, allowing users to register with distinctive usernames and engage with the platform.
+                                <span className='font-bold'>
+                                    {translations.projects.smileyspeak.key_features.li3.span}
+                                </span>
+                                <p>{translations.projects.smileyspeak.key_features.li3.text}</p>
                             </li>
                         </ul>
                     </div>
@@ -91,8 +113,8 @@ const SmileySpeak = ({ lang }: { lang: String }) => {
 
                 <div className="flex justify-start w-full">
                     <div className="text-black flex flex-col gap-3 max-w-lg">
-                        <h1 className="text-3xl font-semibold">Target Audience and Use Cases</h1>
-                        <p>SmileySpeak is designed for anyone who enjoys sharing lighthearted, funny moments through comments. Whether users want to post humorous thoughts or engage with others' content, the platform is ideal for fostering fun, casual interactions.</p>
+                        <h1 className="text-3xl font-semibold">{translations.projects.smileyspeak.target_audience.title}</h1>
+                        <p>{translations.projects.smileyspeak.target_audience.description}</p>
                     </div>
                 </div>
             </section>

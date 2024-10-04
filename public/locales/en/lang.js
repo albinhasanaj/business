@@ -101,10 +101,60 @@ module.exports = {
                     span: "Reaction Feature:",
                     text: "Users can express themselves within chats using reactions. When a reaction is triggered, it is visible to both users, creating a more interactive and engaging conversation."
                 },
+
             },
             target_audience: {
                 title: "Target Audience and Use Cases",
                 description: "NexTalk is aimed at casual users who are looking for a simple, straightforward platform to communicate with friends. Whether users want to chat live, see who's online, or customize their contact list, NexTalk provides an intuitive environment for basic, real-time communication needs. While it's not intended to compete with larger, feature-rich apps like WhatsApp or Facebook Messenger, it serves as a convenient tool for users looking for a lightweight, easy-to-use messaging platform."
+            }
+        },
+
+        smileyspeak: {
+            project_overview: {
+                title: "Project Overview",
+                description1: "SmileySpeak is a platform where users can share and post funny comments, much like Reddit. The project's primary goal is to offer a simple, engaging space for users to express humor and connect through shared moments of fun."
+            },
+            scope_and_limitations: {
+                title: "Scope and Limitations (Demo Disclaimer)",
+                description: "In this demo version of SmileySpeak, certain features are restricted:",
+                li1: {
+                    span: "Liking posts:",
+                    text: "Users are unable to like posts"
+                },
+                li2: {
+                    span: "Posting comments:",
+                    text: "Posting new comments or threads is disabled."
+                },
+                li3: {
+                    span: "Profile edit:",
+                    text: "Profile editing options, such as updating username, email, or password, are unavailable."
+                },
+                description2: "These limitations are designed to streamline the demo while showcasing the platform’s core functionality."
+
+            },
+            development_process: {
+                title: "Development Process",
+                description: "SmileySpeak was developed using Next.js, a framework known for its efficient performance and scalability. The development process was relatively smooth, with no significant obstacles, thanks to the framework’s flexibility and ease of use."
+            },
+            key_features: {
+                title: "Key Features",
+                description: "The key features of SmileySpeak include:",
+                li1: {
+                    span: "Post comments:",
+                    text: "The ability for users to post their own comments and engage in discussions."
+                },
+                li2: {
+                    span: "Like comments:",
+                    text: "A 'like' system where users can express their appreciation for other comments."
+                },
+                li3: {
+                    span: "Create accounts:",
+                    text: "Unique account creation, allowing users to register with distinctive usernames and engage with the platform."
+                },
+            },
+            target_audience: {
+                title: "Target Audience and Use Cases",
+                description: "SmileySpeak is designed for anyone who enjoys sharing lighthearted, funny moments through comments. Whether users want to post humorous thoughts or engage with others' content, the platform is ideal for fostering fun, casual interactions."
             }
         }
     },

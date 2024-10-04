@@ -11,10 +11,10 @@ const Home = ({ params }: { params: { lang: string } }) => {
 
   return (
     <LoadingWrapper>
+      <header className="w-full flex justify-center absolute px-4 z-50">
+        <Navbar />
+      </header>
       <main className="flex flex-col">
-        <header className="w-full flex justify-center absolute px-4 z-50">
-          <Navbar />
-        </header>
         <div className="min-h-screen h-[650px] flex justify-center blue__gradient relative">
           <div className="max-w-[1440px] w-full mb-16" id="home">
             <Hero />

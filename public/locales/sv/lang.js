@@ -106,6 +106,55 @@ module.exports = {
                 title: "Målgrupp och användningsområden",
                 description: "NexTalk riktar sig till vanliga användare som letar efter en enkel och okomplicerad plattform för att kommunicera med sina vänner. Oavsett om användarna vill chatta live, se vilka som är online eller anpassa sin kontaktlista, erbjuder NexTalk en intuitiv miljö för grundläggande kommunikationsbehov i realtid. Även om det inte är avsett att konkurrera med större, funktionsrika appar som WhatsApp eller Facebook Messenger, fungerar det som ett bekvämt verktyg för användare som letar efter en lätt, lättanvänd meddelandeplattform."
             }
+        },
+
+        smileyspeak: {
+            project_overview: {
+                title: "Project Overview",
+                description1: "SmileySpeak är en plattform där användarna kan dela och posta roliga kommentarer, ungefär som på Reddit. Projektets primära mål är att erbjuda ett enkelt, engagerande utrymme för användare att uttrycka humor och få kontakt genom delade roliga stunder."
+            },
+            scope_and_limitations: {
+                title: "Scope and Limitations (Demo Disclaimer)",
+                description: "I denna demoversion av SmileySpeak är vissa funktioner begränsade:",
+                li1: {
+                    span: "Gilla inlägg:",
+                    text: "Användare kan inte gilla inlägg"
+                },
+                li2: {
+                    span: "Publicering av kommentarer:",
+                    text: "Att posta nya kommentarer eller trådar är inaktiverat."
+                },
+                li3: {
+                    span: "Profilredigering:",
+                    text: "Alternativ för profilredigering, t.ex. uppdatering av användarnamn, e-postadress eller lösenord, är inte tillgängliga."
+                },
+                description2: "Dessa begränsningar är utformade för att effektivisera demonstrationen och samtidigt visa upp plattformens kärnfunktionalitet."
+
+            },
+            development_process: {
+                title: "Development Process",
+                description: "SmileySpeak utvecklades med hjälp av Next.js, ett ramverk som är känt för sin effektiva prestanda och skalbarhet. Utvecklingsprocessen var relativt smidig, utan några större hinder, tack vare ramverkets flexibilitet och användarvänlighet."
+            },
+            key_features: {
+                title: "Key Features",
+                description: "De viktigaste funktionerna i SmileySpeak inkluderar:",
+                li1: {
+                    span: "Skicka kommentarer:",
+                    text: "Möjligheten för användare att lägga upp egna kommentarer och delta i diskussioner."
+                },
+                li2: {
+                    span: "Gilla kommentarer:",
+                    text: "Ett ”gilla”-system där användare kan uttrycka sin uppskattning för andra kommentarer."
+                },
+                li3: {
+                    span: "Skapa konton:",
+                    text: "Skapande av unika konton, så att användare kan registrera sig med distinkta användarnamn och engagera sig i plattformen."
+                },
+            },
+            target_audience: {
+                title: "Målgrupp och användningsområden",
+                description: "SmileySpeak är utformat för alla som tycker om att dela med sig av lättsamma och roliga ögonblick genom kommentarer. Oavsett om användarna vill publicera humoristiska tankar eller engagera sig i andras innehåll är plattformen idealisk för att främja roliga, avslappnade interaktioner."
+            }
         }
     },
     buttons: {
