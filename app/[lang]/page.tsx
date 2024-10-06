@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import Wave from "react-wavify";
 import LoadingWrapper from "@/components/LoadingWrapper";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Home = ({ params }: { params: { lang: string } }) => {
   const lang = (params.lang === 'en' || params.lang === 'sv') ? params.lang : 'en';
@@ -66,6 +67,7 @@ const Home = ({ params }: { params: { lang: string } }) => {
           <Contact />
         </div>
       </main>
+      <Footer />
     </LoadingWrapper>
   );
 }
