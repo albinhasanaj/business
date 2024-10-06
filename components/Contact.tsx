@@ -45,7 +45,7 @@ const Contact = () => {
     const displayedValue = (rangeValue * 150) + 300 > 14999 ? '15000+' : (rangeValue * 150) + 300;
 
     return (
-        <div id='contact' className='h-auto min-h-screen flex items-center justify-center w-full'>
+        <div id='contact' className='h-auto min-h-screen flex items-center justify-center w-full mb-[200px]'>
             <div className='max-w-[1440px] gap-10 md2:gap-0 w-full flex flex-col md2:flex-row items-center justify-between mx-16'>
                 <div className='flex flex-col md2:w-[750px] gap-10 items-center md2:items-start md2:pt-0 pt-3'>
                     <div className='flex flex-col gap-2 items-center md2:items-start xl:w-[750px] sm:w-[500px]'>
