@@ -67,7 +67,7 @@ const Home = ({ params }: { params: { lang: string } }) => {
           <Contact />
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </LoadingWrapper>
   );
 }

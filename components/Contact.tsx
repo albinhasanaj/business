@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import "@/styles/budgetslider.css"
+import Image from 'next/image';
 
 const Contact = () => {
     const [value, setValue] = useState(0); // slider value
@@ -45,62 +46,72 @@ const Contact = () => {
     const displayedValue = (rangeValue * 150) + 300 > 14999 ? '15000+' : (rangeValue * 150) + 300;
 
     return (
-        <div id='contact' className='h-auto min-h-screen flex items-center justify-center w-full mb-[200px]'>
-            <div className='max-w-[1440px] gap-10 md2:gap-0 w-full flex flex-col md2:flex-row items-center justify-between mx-16'>
-                <div className='flex flex-col md2:w-[750px] gap-10 items-center md2:items-start md2:pt-0 pt-3'>
-                    <div className='flex flex-col gap-2 items-center md2:items-start xl:w-[750px] sm:w-[500px]'>
-                        <h1 className='text-white font-bold text-3xl sm:text-4xl'>Contact us</h1>
-                        <p className='text-white text-[16px] sm:text-xl text-center md2:text-start'>
-                            Looking to get in touch? You can either fill out the form with your request or browse the contact details to choose your preferred method of contacting us.
-                        </p>
+        <div className='flex justify-center'>
+            <div id='contact' className='h-auto min-h-screen flex flex-col md2:flex-row items-center justify-between max-w-[1440px] mb-[200px]'>
+
+                <div className='gap-10 md2:gap-[140px] flex flex-col items-start justify-between'>
+                    <div className='flex flex-col md2:w-[750px] gap-10 items-center md2:items-start md2:pt-0 pt-3'>
+                        <div className='flex flex-col gap-2 items-center md2:items-start xl:w-[750px] sm:w-[500px]'>
+                            <h1 className='text-white font-bold text-3xl sm:text-4xl'>Contact us</h1>
+                            <p className='text-white text-[16px] sm:text-xl text-center md2:text-start'>
+                                Looking to get in touch? You can either fill out the form with your request or browse the contact details to choose your preferred method of contacting us.
+                            </p>
+                        </div>
                     </div>
-                    <div className='xl:w-[550px] xl:h-[350px] sm:w-[500px] sm:h-[320px] w-[300px] h-[180px] bg-white flex items-center justify-center'>
-                        <h1 className='text-black text-center text-4xl'>IMAGE FOR <br /> CONTACT FORM</h1>
+
+                    <div className='flex flex-col gap-10 w-full items-center md2:items-start'>
+                        <div className='flex flex-col gap-16'>
+                            <input type="text" placeholder='NAME' className='bg-transparent xl:w-[500px] xs:w-[350px] w-[300px] border-b-[1px] border-white outline-none text-white font-semibold text-xl xl:text-2xl placeholder:font-normal pb-2 pl-2' />
+                            <input type="text" placeholder='EMAIL' className='bg-transparent xl:w-[500px] xs:w-[350px] w-[300px] border-b-[1px] border-white outline-none text-white font-semibold text-xl xl:text-2xl placeholder:font-normal pb-2 pl-2' />
+                            <textarea name="Comment" id="Comment" placeholder='SHARE YOUR THOUGHTS' className='bg-transparent xl:w-[500px] xs:w-[350px] w-[300px] border-b-[1px] border-white outline-none text-white font-semibold text-xl xl:text-2xl placeholder:font-normal pl-2'></textarea>
+                        </div>
+                        <div className='flex flex-col gap-10'>
+                            <div className='flex flex-col xs:flex-row justify-between gap-3 items-center'>
+                                <p className='text-white'>Budget:</p>
+                                <div className='flex w-full gap-3'>
+                                    <input
+                                        type="range"
+                                        min="0"
+                                        max="100"
+                                        value={value}
+                                        onChange={handleSliderChange}
+                                        className="slider"
+                                        style={{ '--value': `${value}%` } as React.CSSProperties}
+                                    />
+                                    {isEditing ? (
+                                        <div className='flex items-center'>
+                                            <span className='text-white'>$</span>
+                                            <input
+                                                type="text"
+                                                value={customValue || ''}
+                                                onChange={handleCustomChange}
+                                                onBlur={handleCustomSubmit}
+                                                className="text-white bg-transparent w-[50px] border-none outline-none"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <p
+                                            className='text-white cursor-pointer'
+                                            onClick={() => setIsEditing(true)}
+                                        >
+                                            ${displayedValue}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                            <button className='bg-white w-[300px] xs:w-[350px] xl:w-[475px] h-[65px] text-black text-[16px] flex items-center justify-center font-medium rounded-full'>SHARE YOUR FEEDBACK</button>
+                        </div>
                     </div>
                 </div>
-
-                <div className='flex flex-col gap-10'>
-                    <div className='flex flex-col gap-16'>
-                        <input type="text" placeholder='NAME' className='bg-transparent xl:w-[500px] xs:w-[350px] w-[300px] border-b-[1px] border-white outline-none text-white font-semibold text-xl xl:text-2xl placeholder:font-normal pb-2 pl-2' />
-                        <input type="text" placeholder='EMAIL' className='bg-transparent xl:w-[500px] xs:w-[350px] w-[300px] border-b-[1px] border-white outline-none text-white font-semibold text-xl xl:text-2xl placeholder:font-normal pb-2 pl-2' />
-                        <textarea name="Comment" id="Comment" placeholder='SHARE YOUR THOUGHTS' className='bg-transparent xl:w-[500px] xs:w-[350px] w-[300px] border-b-[1px] border-white outline-none text-white font-semibold text-xl xl:text-2xl placeholder:font-normal pl-2'></textarea>
-                    </div>
-                    <div className='flex flex-col gap-10'>
-                        <div className='flex flex-col xs:flex-row justify-between gap-3 items-center'>
-                            <p className='text-white'>Budget:</p>
-                            <div className='flex w-full gap-3'>
-                                <input
-                                    type="range"
-                                    min="0"
-                                    max="100"
-                                    value={value}
-                                    onChange={handleSliderChange}
-                                    className="slider"
-                                    style={{ '--value': `${value}%` } as React.CSSProperties}
-                                />
-                                {isEditing ? (
-                                    <div className='flex items-center'>
-                                        <span className='text-white'>$</span>
-                                        <input
-                                            type="text"
-                                            value={customValue || ''}
-                                            onChange={handleCustomChange}
-                                            onBlur={handleCustomSubmit}
-                                            className="text-white bg-transparent w-[50px] border-none outline-none"
-                                        />
-                                    </div>
-                                ) : (
-                                    <p
-                                        className='text-white cursor-pointer'
-                                        onClick={() => setIsEditing(true)}
-                                    >
-                                        ${displayedValue}
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-                        <button className='bg-white w-[300px] xs:w-[350px] xl:w-[475px] h-[65px] text-black text-[16px] flex items-center justify-center font-medium rounded-full'>SHARE YOUR FEEDBACK</button>
-                    </div>
+                <div>
+                    <Image
+                        src='/images/TachyonIllustration.png'
+                        width={800}
+                        height={180}
+                        alt='contact'
+                        className='w-[500px]'
+                        unoptimized={true}
+                    />
                 </div>
             </div>
         </div>
