@@ -2,12 +2,37 @@
 import React, { useState } from 'react'
 import "@/styles/budgetslider.css"
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const planeVariants = {
+    initial: { scale: 1, opacity: 1, x: 0, y: 0 },
+    flyAway: {
+        scale: [1, 3.5],
+        x: [0, -200, 100, 1000],
+        y: [0, -50, -10, -250],
+        opacity: [1, 1, 1, 0],
+        rotate: [0, 25, 0, 30],
+        transition: {
+            duration: 3,
+            ease: "easeInOut"
+        }
+    },
+    fadeBack: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            duration: 0.8,
+            delay: 3.2
+        }
+    }
+};
 
 const Contact = () => {
     const [value, setValue] = useState(0); // slider value
     const [rangeValue, setRangeValue] = useState(0); // computed dollar amount
     const [customValue, setCustomValue] = useState<number | null>(null); // for custom input
     const [isEditing, setIsEditing] = useState(false); // toggle for input/edit state
+    const [planeAnimation, setPlaneAnimation] = useState(false); // form submit state
 
     const handleSliderChange = (e: any) => {
         const newValue = Number(e.target.value);
@@ -41,6 +66,12 @@ const Contact = () => {
             setValue(0);
         }
         setIsEditing(false);
+    };
+
+    const handleSubmit = () => {
+        setPlaneAnimation(true)
+        console.log('Form submitted!');
+
     };
 
     const displayedValue = (rangeValue * 150) + 300 > 14999 ? '15000+' : (rangeValue * 150) + 300;
@@ -99,19 +130,30 @@ const Contact = () => {
                                     )}
                                 </div>
                             </div>
-                            <button className='bg-white w-[300px] xs:w-[350px] xl:w-[475px] h-[65px] text-black text-[16px] flex items-center justify-center font-medium rounded-full'>SHARE YOUR FEEDBACK</button>
+                            <button
+                                onClick={handleSubmit}
+                                className={`bg-white w-[300px] xs:w-[350px] xl:w-[475px] h-[65px] text-black text-[16px] flex items-center justify-center font-medium rounded-full relative`}
+                            >
+                                SHARE YOUR FEEDBACK
+
+                                <motion.div
+                                    className='absolute right-[10%]'
+                                    variants={planeVariants}
+                                    initial="initial"
+                                    animate={planeAnimation ? "flyAway" : "fadeBack"}
+                                    onAnimationComplete={() => setPlaneAnimation(false)} // Reset after animation
+                                >
+                                    <Image
+                                        src='/images/TachyonIllustration.png'
+                                        width={800}
+                                        height={180}
+                                        alt='contact'
+                                        className='w-[64px] h-auto'
+                                    />
+                                </motion.div>
+                            </button>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <Image
-                        src='/images/TachyonIllustration.png'
-                        width={800}
-                        height={180}
-                        alt='contact'
-                        className='w-[500px]'
-                        unoptimized={true}
-                    />
                 </div>
             </div>
         </div>
