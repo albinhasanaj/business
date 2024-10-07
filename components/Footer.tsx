@@ -1,11 +1,17 @@
 import Link from 'next/link'
 import React from 'react'
+import Footerlottie from './Footerlottie'
 
 const Footer = () => {
     return (
         <div className='relative'>
-            <footer className='group bg-white w-full h-[300px] flex justify-center rounded-t-[40px] hover:h-[750px] absolute bottom-0 transition-all duration-500'>
+            <footer className='group bg-white w-full h-[300px] flex justify-center rounded-t-[40px] hover:h-[550px] absolute bottom-0 transition-all duration-500'>
                 <div className='flex flex-col w-full items-center'>
+                    {/* Hidden div that becomes visible on hover */}
+                    <div className='opacity-0 group-hover:opacity-100 transition-all duration-500 w-full  rounded-t-[40px] h-full'>
+                        {/* SOMETHING COOL LIKE A GIF OR AN ANIMATION OR SOMETHING LIKE THAT THATS UNIQE TO THE WEBSITE */}
+                        <Footerlottie />
+                    </div>
                     <div className='max-w-[1440px] flex justify-between text-black pt-[40px] pb-[10px] px-[100px] w-full text-[20px]'>
                         <div className='flex flex-col'>
                             <ul>
@@ -41,9 +47,6 @@ const Footer = () => {
                                 <li className='hover:underline cursor-pointer'>Facebook</li>
                             </ul>
                         </div>
-                    </div>
-                    {/* Hidden div that becomes visible on hover */}
-                    <div className='opacity-0 group-hover:opacity-100 transition-all duration-500 w-full bg-orange-500 h-full'>
                     </div>
                     <div>
                         <p className='text-black text-[16px] text-center'>Tachyon © 2024</p>

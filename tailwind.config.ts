@@ -8,9 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "nasa": "url('/images/NexTalk/nasa.png')",
+      keyframes: {
+        moveCar: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+
       },
+      animation: {
+        'car-move': 'moveCar 15s linear infinite',
+      }
     }, screens: {
       'xs': '400px',
       'sm': '640px',
